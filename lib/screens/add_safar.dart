@@ -36,12 +36,13 @@ class _AddSafarState extends State<AddSafar> {
             child: Column(
               children: <Widget>[
                 // branchinfos
-                getCard(cardText: branchInfo),
+                GetCard(cardText: branchInfo),
                 getBranchInfo(defaultPadding),
 
-                getCard(cardText: orgInfo),
+                GetCard(cardText: orgInfo),
                 ElevatedButton(
                   onPressed: () {
+                    
                     // Validate returns true if the form is valid, or false otherwise.
                     if (_formKey.currentState!.validate()) {
                       // If the form is valid, display a snackbar. In the real world,
@@ -127,15 +128,25 @@ class _AddSafarState extends State<AddSafar> {
         ),
 
 
-
-
+        Padding(
+          padding: EdgeInsets.fromLTRB(
+              defaultPadding, defaultPadding, defaultPadding, defaultPadding),
+          child: TextFormField(
+            controller: _branchPresidentNameC,
+            decoration: InputDecoration(
+              labelText: Cons.branchPresidentName,
+              border: OutlineInputBorder(),
+            ),
+            // The validator receives the text that the user has entered.
+          ),
+        ),
       ],
     );
   }
 }
 
-class getCard extends StatelessWidget {
-  const getCard({
+class GetCard extends StatelessWidget {
+  const GetCard({
     Key? key,
     required this.cardText,
   }) : super(key: key);
