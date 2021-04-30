@@ -5,6 +5,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
  import 'package:provider/provider.dart';
 import 'package:safarprotibedon/services/authentication_service.dart';
 
+
+
 class SignUpScreen extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
