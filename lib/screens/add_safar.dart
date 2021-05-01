@@ -108,6 +108,7 @@ class _AddSafarState extends State<AddSafar> {
                 maxTime: DateTime(now.year+1, 12, 31),
                 onChanged: (date) {
                   // print('change $date');
+
                 },
                 onConfirm: (date) {
                   String dayName = DateFormat.EEEE('en_US').format(date);
