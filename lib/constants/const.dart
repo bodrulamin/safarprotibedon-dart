@@ -11,4 +11,14 @@ class Cons {
   static var branchName = "Branch Name";
   static var branchPresidentName = "Branch President Name";
   static var safarDate = "Safar Date";
+
+  static var location = "Location";
+
+  static var phone = 'Phone';
+
+  static String safarType = "Safar Type";
+
+  static var others = "Others";
+
+
 }
