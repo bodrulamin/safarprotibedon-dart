@@ -22,11 +22,22 @@ class _AddSafarState extends State<AddSafar> {
 
   double defaultPadding = 8.0;
 
+  var selectedSalutation;
+
+  Color getColorRedAmber(Set<MaterialState> states) {
+    const Set<MaterialState> interactiveStates = <MaterialState>{
+      MaterialState.pressed,
+      MaterialState.hovered,
+      MaterialState.focused,
+    };
+    if (states.any(interactiveStates.contains)) {
+      return Colors.amber;
+    }
+    return Colors.red;
+  }
 
   @override
   Widget build(BuildContext context) {
-    String branchInfo = 'Branch Info';
-    var orgInfo = "Ogranizational Info";
     return Scaffold(
       appBar: AppBar(
         title: Text("Add Safar"),
@@ -40,21 +51,43 @@ class _AddSafarState extends State<AddSafar> {
               child: Column(
                 children: <Widget>[
                   // branchinfos
-                  GetCard(cardText: branchInfo),
-                  getBranchInfo(defaultPadding),
+                  GetCard(cardText: Cons.branchInfo),
+                  getBranchInfo(),
 
-                  GetCard(cardText: orgInfo),
-                  ElevatedButton(
-                    onPressed: () {
-                      // Validate returns true if the form is valid, or false otherwise.
-                      if (_formKey.currentState!.validate()) {
-                        // If the form is valid, display a snackbar. In the real world,
-                        // you'd often call a server or save the information in a database.
-                        ScaffoldMessenger.of(context).showSnackBar(
-                            SnackBar(content: Text(_branchNameC.text)));
-                      }
-                    },
-                    child: Text('Submit'),
+                  // org Info
+                  GetCard(cardText: Cons.orgInfo),
+                  getOrgInfo(),
+
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: ElevatedButton(
+                          style: ButtonStyle(
+                              backgroundColor:
+                                  MaterialStateProperty.resolveWith(
+                                      getColorRedAmber)),
+                          onPressed: () {},
+                          child: Text('Cancel'),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: ElevatedButton(
+                          onPressed: () {
+                            // Validate returns true if the form is valid, or false otherwise.
+                            if (_formKey.currentState!.validate()) {
+                              // If the form is valid, display a snackbar. In the real world,
+                              // you'd often call a server or save the information in a database.
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                  SnackBar(content: Text(_branchNameC.text)));
+                            }
+                          },
+                          child: Text('Submit'),
+                        ),
+                      ),
+                    ],
                   ),
                 ],
               ),
@@ -65,7 +98,7 @@ class _AddSafarState extends State<AddSafar> {
     );
   }
 
-  Widget getBranchInfo(double defaultPadding) {
+  Widget getBranchInfo() {
     return Column(
       children: [
         /////////////////////////////Branch Name
@@ -79,12 +112,7 @@ class _AddSafarState extends State<AddSafar> {
               border: OutlineInputBorder(),
             ),
             // The validator receives the text that the user has entered.
-            validator: (value) {
-              if (value == null || value.isEmpty) {
-                return 'Please enter some text';
-              }
-              return null;
-            },
+            validator: isEmpty,
           ),
         ),
 
@@ -93,6 +121,7 @@ class _AddSafarState extends State<AddSafar> {
           padding: EdgeInsets.fromLTRB(
               defaultPadding, defaultPadding, defaultPadding, defaultPadding),
           child: TextFormField(
+            validator: isEmpty,
             controller: _dateC,
             onTap: () {
               DateTime now = DateTime.now();
@@ -127,6 +156,7 @@ class _AddSafarState extends State<AddSafar> {
           padding: EdgeInsets.fromLTRB(
               defaultPadding, defaultPadding, defaultPadding, defaultPadding),
           child: TextFormField(
+            validator: isEmpty,
             controller: _locationC,
             decoration: InputDecoration(
               labelText: Cons.location,
@@ -140,6 +170,7 @@ class _AddSafarState extends State<AddSafar> {
           padding: EdgeInsets.fromLTRB(
               defaultPadding, defaultPadding, defaultPadding, defaultPadding),
           child: TextFormField(
+            validator: isEmpty,
             controller: _branchPresidentNameC,
             decoration: InputDecoration(
               labelText: Cons.branchPresidentName,
@@ -150,8 +181,36 @@ class _AddSafarState extends State<AddSafar> {
         ),
 
         Builder(builder: safarTypeBuilder),
+
+        DropdownButtonHideUnderline(
+          child: DropdownButtonFormField<String>(
+            decoration: InputDecoration(
+              labelText: Cons.safarType,
+              border: const OutlineInputBorder(),
+            ),
+
+
+            onChanged: (salutation) =>
+                setState(() => selectedSalutation = salutation),
+            validator: isEmpty,
+            items:
+                ['MR.', 'MS.'].map<DropdownMenuItem<String>>((String value) {
+              return DropdownMenuItem<String>(
+                value: value,
+                child: Text(value),
+              );
+            }).toList(),
+          ),
+        ),
       ],
     );
+  }
+
+  String? isEmpty(value) {
+    if (value == null || value.isEmpty) {
+      return 'Please enter some text';
+    }
+    return null;
   }
 
   Widget safarTypeBuilder(BuildContext context) {
@@ -183,6 +242,10 @@ class _AddSafarState extends State<AddSafar> {
         ),
       ),
     );
+  }
+
+  Widget getOrgInfo() {
+    return Container();
   }
 }
 

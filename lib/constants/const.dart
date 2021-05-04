@@ -7,18 +7,16 @@ class Cons {
   static var homePage = '/homepage';
 
   // Strings
-  static String addSafar = "Add Safar";
+
+  static var addSafar = "Add Safar";
+
+  static var branchInfo = 'Branch Info';
+  static var orgInfo = "Ogranizational Info";
   static var branchName = "Branch Name";
   static var branchPresidentName = "Branch President Name";
   static var safarDate = "Safar Date";
-
   static var location = "Location";
-
-  static var phone = 'Phone';
-
   static String safarType = "Safar Type";
-
-  static var others = "Others";
 
   static var safarTypes = [
     'জেলা সম্মেলন',
@@ -34,4 +32,7 @@ class Cons {
     'কর্মী তারবিয়াত',
     'অন্যান্য',
   ];
+
+
+
 }
