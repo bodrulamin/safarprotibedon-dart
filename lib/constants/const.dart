@@ -1,5 +1,5 @@
 class Cons {
- // routes
+  // routes
   static final mainPage = "/";
   static final signInScreen = "/signIn";
   static final signUpScreen = "/signUp";
@@ -20,5 +20,13 @@ class Cons {
 
   static var others = "Others";
 
-
+  static var _safarTypes = [
+    'Apple',
+    'Orange',
+    'Lemon',
+    'Strawberry',
+    'Peach',
+    'Cherry',
+    'Watermelon',
+  ];
 }

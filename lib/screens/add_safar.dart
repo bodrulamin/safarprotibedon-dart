@@ -80,6 +80,8 @@ class _AddSafarState extends State<AddSafar> {
   Widget getBranchInfo(double defaultPadding) {
     return Column(
       children: [
+
+        //Branch Name
         Padding(
           padding: EdgeInsets.fromLTRB(
               defaultPadding, defaultPadding, defaultPadding, defaultPadding),
@@ -98,6 +100,43 @@ class _AddSafarState extends State<AddSafar> {
             },
           ),
         ),
+
+        // Safar Date
+        Padding(
+          padding: EdgeInsets.fromLTRB(
+              defaultPadding, defaultPadding, defaultPadding, defaultPadding),
+          child: TextFormField(
+            controller: _dateC,
+            onTap: () {
+              DateTime now = DateTime.now();
+
+              DatePicker.showDatePicker(
+                context,
+                showTitleActions: true,
+                minTime: DateTime(now.year-1, 1, 1),
+                maxTime: DateTime(now.year , 12, 31),
+                onChanged: (date) {
+                  // print('change $date');
+                },
+                onConfirm: (date) {
+                  String dayName = DateFormat.EEEE('en_US').format(date);
+                  String formattedDate = DateFormat('dd-MM-yyyy').format(date);
+                  _dateC.text = formattedDate + " " + dayName;
+                },
+                currentTime: DateTime.now(),
+                locale: LocaleType.bn,
+              );
+            },
+            decoration: InputDecoration(
+              labelText: Cons.safarDate,
+              border: OutlineInputBorder(),
+            ),
+            // The validator receives the text that the user has entered.
+          ),
+        ),
+
+
+
         Padding(
           padding: EdgeInsets.fromLTRB(
               defaultPadding, defaultPadding, defaultPadding, defaultPadding),
@@ -122,38 +161,11 @@ class _AddSafarState extends State<AddSafar> {
             // The validator receives the text that the user has entered.
           ),
         ),
-        Padding(
-          padding: EdgeInsets.fromLTRB(
-              defaultPadding, defaultPadding, defaultPadding, defaultPadding),
-          child: TextFormField(
-            controller: _dateC,
-            onTap: () {
-              DateTime now = DateTime.now();
 
-              DatePicker.showDatePicker(
-                context,
-                showTitleActions: true,
-                minTime: DateTime(now.year, 1, 1),
-                maxTime: DateTime(now.year + 1, 12, 31),
-                onChanged: (date) {
-                  // print('change $date');
-                },
-                onConfirm: (date) {
-                  String dayName = DateFormat.EEEE('en_US').format(date);
-                  String formattedDate = DateFormat('dd-MM-yyyy').format(date);
-                  _dateC.text = formattedDate + " " + dayName;
-                },
-                currentTime: DateTime.now(),
-                locale: LocaleType.bn,
-              );
-            },
-            decoration: InputDecoration(
-              labelText: Cons.safarDate,
-              border: OutlineInputBorder(),
-            ),
-            // The validator receives the text that the user has entered.
-          ),
-        ),
+
+
+
+
         Padding(
           padding: EdgeInsets.fromLTRB(
               defaultPadding, defaultPadding, defaultPadding, defaultPadding),
