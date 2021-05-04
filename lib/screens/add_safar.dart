@@ -15,25 +15,13 @@ class _AddSafarState extends State<AddSafar> {
   final _formKey = GlobalKey<FormState>();
 
   var _branchNameC = TextEditingController();
-  var _branchPresidentNameC = TextEditingController();
-  var _branchPresidentPhoneC = TextEditingController();
   var _dateC = TextEditingController();
   var _locationC = TextEditingController();
+  var _branchPresidentNameC = TextEditingController();
   var _selectedSafarType;
-
-  var _fruits = [
-    'Apple',
-    'Orange',
-    'Lemon',
-    'Strawberry',
-    'Peach',
-    'Cherry',
-    'Watermelon',
-  ];
 
   double defaultPadding = 8.0;
 
-  var _branchOthersC= TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -80,8 +68,7 @@ class _AddSafarState extends State<AddSafar> {
   Widget getBranchInfo(double defaultPadding) {
     return Column(
       children: [
-
-        //Branch Name
+        /////////////////////////////Branch Name
         Padding(
           padding: EdgeInsets.fromLTRB(
               defaultPadding, defaultPadding, defaultPadding, defaultPadding),
@@ -101,7 +88,7 @@ class _AddSafarState extends State<AddSafar> {
           ),
         ),
 
-        // Safar Date
+        //////////////////////////////////// Safar Date
         Padding(
           padding: EdgeInsets.fromLTRB(
               defaultPadding, defaultPadding, defaultPadding, defaultPadding),
@@ -113,8 +100,8 @@ class _AddSafarState extends State<AddSafar> {
               DatePicker.showDatePicker(
                 context,
                 showTitleActions: true,
-                minTime: DateTime(now.year-1, 1, 1),
-                maxTime: DateTime(now.year , 12, 31),
+                minTime: DateTime(now.year - 1, 1, 1),
+                maxTime: DateTime(now.year, 12, 31),
                 onChanged: (date) {
                   // print('change $date');
                 },
@@ -135,7 +122,19 @@ class _AddSafarState extends State<AddSafar> {
           ),
         ),
 
-
+        /////////////////////////////////// Location
+        Padding(
+          padding: EdgeInsets.fromLTRB(
+              defaultPadding, defaultPadding, defaultPadding, defaultPadding),
+          child: TextFormField(
+            controller: _locationC,
+            decoration: InputDecoration(
+              labelText: Cons.location,
+              border: OutlineInputBorder(),
+            ),
+            // The validator receives the text that the user has entered.
+          ),
+        ),
 
         Padding(
           padding: EdgeInsets.fromLTRB(
@@ -149,57 +148,8 @@ class _AddSafarState extends State<AddSafar> {
             // The validator receives the text that the user has entered.
           ),
         ),
-        Padding(
-          padding: EdgeInsets.fromLTRB(
-              defaultPadding, defaultPadding, defaultPadding, defaultPadding),
-          child: TextFormField(
-            controller: _branchPresidentPhoneC,
-            decoration: InputDecoration(
-              labelText: Cons.phone,
-              border: OutlineInputBorder(),
-            ),
-            // The validator receives the text that the user has entered.
-          ),
-        ),
 
-
-
-
-
-        Padding(
-          padding: EdgeInsets.fromLTRB(
-              defaultPadding, defaultPadding, defaultPadding, defaultPadding),
-          child: TextFormField(
-            controller: _locationC,
-            decoration: InputDecoration(
-              labelText: Cons.location,
-              border: OutlineInputBorder(),
-            ),
-            // The validator receives the text that the user has entered.
-          ),
-        ),
         Builder(builder: safarTypeBuilder),
-
-
-        Padding(
-          padding: EdgeInsets.fromLTRB(
-              defaultPadding, defaultPadding, defaultPadding, defaultPadding),
-          child: TextFormField(
-            controller: _branchOthersC,
-            decoration: InputDecoration(
-              labelText: Cons.others,
-              border: OutlineInputBorder(),
-            ),
-            // The validator receives the text that the user has entered.
-          ),
-        ),
-
-
-
-
-
-
-
       ],
     );
   }
@@ -220,7 +170,7 @@ class _AddSafarState extends State<AddSafar> {
             // Reduces the dropdowns height by +/- 50%
             icon: Icon(Icons.keyboard_arrow_down),
             value: _selectedSafarType,
-            items: _fruits.map((item) {
+            items: Cons.safarTypes.map((item) {
               return DropdownMenuItem(
                 value: item,
                 child: Text(item),
