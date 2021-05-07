@@ -35,7 +35,8 @@ android {
     }
 
     defaultConfig {
-        // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
+        // TODO: Specify your own unique Applic
+        //  ation ID (https://developer.android.com/studio/build/application-id.html).
         applicationId "bodrulamin.safarprotibedon"
         minSdkVersion 16
         targetSdkVersion 30
@@ -52,6 +53,19 @@ android {
             signingConfig signingConfigs.debug
         }
     }
+    compileOptions {
+        sourceCompatibility "1.8"
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    buildToolsVersion '30.0.3'
+
+    configurations.all {
+        resolutionStrategy {
+            force 'com.android.support:support-v4:27.1.0'
+        }
+    }
+
+
 }
 
 flutter {

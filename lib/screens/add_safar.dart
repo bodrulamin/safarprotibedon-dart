@@ -20,9 +20,10 @@ class _AddSafarState extends State<AddSafar> {
   var _branchPresidentNameC = TextEditingController();
   var _selectedSafarType;
 
-  double defaultPadding = 8.0;
 
-  var selectedSalutation;
+
+double defaultPadding = 8.0;
+
 
   Color getColorRedAmber(Set<MaterialState> states) {
     const Set<MaterialState> interactiveStates = <MaterialState>{
@@ -104,8 +105,7 @@ class _AddSafarState extends State<AddSafar> {
       children: [
         /////////////////////////////Branch Name
         Padding(
-          padding: EdgeInsets.fromLTRB(
-              defaultPadding, defaultPadding, defaultPadding, defaultPadding),
+          padding: EdgeInsets.all(defaultPadding),
           child: TextFormField(
             controller: _branchNameC,
             decoration: InputDecoration(
@@ -119,8 +119,7 @@ class _AddSafarState extends State<AddSafar> {
 
         //////////////////////////////////// Safar Date
         Padding(
-          padding: EdgeInsets.fromLTRB(
-              defaultPadding, defaultPadding, defaultPadding, defaultPadding),
+          padding: EdgeInsets.all(defaultPadding),
           child: TextFormField(
             validator: isEmpty,
             controller: _dateC,
@@ -154,8 +153,7 @@ class _AddSafarState extends State<AddSafar> {
 
         /////////////////////////////////// Location
         Padding(
-          padding: EdgeInsets.fromLTRB(
-              defaultPadding, defaultPadding, defaultPadding, defaultPadding),
+          padding: EdgeInsets.all(defaultPadding),
           child: TextFormField(
             validator: isEmpty,
             controller: _locationC,
@@ -168,8 +166,7 @@ class _AddSafarState extends State<AddSafar> {
         ),
 
         Padding(
-          padding: EdgeInsets.fromLTRB(
-              defaultPadding, defaultPadding, defaultPadding, defaultPadding),
+          padding: EdgeInsets.all(defaultPadding),
           child: TextFormField(
             validator: isEmpty,
             controller: _branchPresidentNameC,
@@ -181,26 +178,27 @@ class _AddSafarState extends State<AddSafar> {
           ),
         ),
 
-        Builder(builder: safarTypeBuilder),
+        Padding(
+          padding:  EdgeInsets.all(defaultPadding),
+          child: DropdownButtonHideUnderline(
+            child: DropdownButtonFormField<String>(
+              decoration: InputDecoration(
+                labelText: Cons.safarType,
+                border: const OutlineInputBorder(),
+              ),
 
-        DropdownButtonHideUnderline(
-          child: DropdownButtonFormField<String>(
-            decoration: InputDecoration(
-              labelText: Cons.safarType,
-              border: const OutlineInputBorder(),
+
+              onChanged: (safarType) =>
+                  setState(() => _selectedSafarType = safarType),
+              validator: isEmpty,
+              items:
+                  Cons.safarTypes.map<DropdownMenuItem<String>>((String value) {
+                return DropdownMenuItem<String>(
+                  value: value,
+                  child: Text(value),
+                );
+              }).toList(),
             ),
-
-
-            onChanged: (salutation) =>
-                setState(() => selectedSalutation = salutation),
-            validator: isEmpty,
-            items:
-                ['MR.', 'MS.'].map<DropdownMenuItem<String>>((String value) {
-              return DropdownMenuItem<String>(
-                value: value,
-                child: Text(value),
-              );
-            }).toList(),
           ),
         ),
       ],
@@ -214,36 +212,6 @@ class _AddSafarState extends State<AddSafar> {
     return null;
   }
 
-  Widget safarTypeBuilder(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.fromLTRB(
-          defaultPadding, defaultPadding, defaultPadding, defaultPadding),
-      child: InputDecorator(
-        decoration: InputDecoration(
-          labelText: Cons.safarType,
-          border: const OutlineInputBorder(),
-        ),
-        child: DropdownButtonHideUnderline(
-          child: DropdownButton(
-            isExpanded: true,
-            isDense: true,
-            // Reduces the dropdowns height by +/- 50%
-            icon: Icon(Icons.keyboard_arrow_down),
-            value: _selectedSafarType,
-            items: Cons.safarTypes.map((item) {
-              return DropdownMenuItem(
-                value: item,
-                child: Text(item),
-              );
-            }).toList(),
-            onChanged: (selectedItem) => setState(
-              () => _selectedSafarType = selectedItem.toString(),
-            ),
-          ),
-        ),
-      ),
-    );
-  }
 
   Widget getOrgInfo() {
     return Container();
