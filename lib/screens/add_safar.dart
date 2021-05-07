@@ -13,16 +13,40 @@ class AddSafar extends StatefulWidget {
 
 class _AddSafarState extends State<AddSafar> {
   final _formKey = GlobalKey<FormState>();
+  double defaultPadding = 8.0;
 
+
+
+// Branch info variables
   var _branchNameC = TextEditingController();
   var _dateC = TextEditingController();
   var _locationC = TextEditingController();
   var _branchPresidentNameC = TextEditingController();
   var _selectedSafarType;
 
+  // Org info variables
+
+  var _totalPresent = TextEditingController();
+  var _sodossoKormiMuballigProttashi = TextEditingController();
+  var _thanaDayittoshil = TextEditingController();
+  var _jillaDayittoshil = TextEditingController();
+  var _diniShongothon = TextEditingController();
+  var _islamiAndolan = TextEditingController();
+  var _otherPeople = TextEditingController();
+  var _activeJila = TextEditingController();
+  var _activeThana = TextEditingController();
+  var _inactiveCause = TextEditingController();
+  var _monthlyReportToCenter = TextEditingController();
+  var _monthlyMeeting = TextEditingController();
+  var _monthlyMeetingAvgPresent = TextEditingController();
+  var _visitToLowerBranch = TextEditingController();
 
 
-double defaultPadding = 8.0;
+ 
+
+
+
+
 
 
   Color getColorRedAmber(Set<MaterialState> states) {
@@ -57,12 +81,16 @@ double defaultPadding = 8.0;
 
                   // org Info
                   GetCard(cardText: Cons.orgInfo),
+
                   getOrgInfo(),
+                  GetCard(cardText: Cons.manpowerInfo),
+
+
+
 
                   Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
-                      
                       Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: ElevatedButton(
@@ -179,15 +207,13 @@ double defaultPadding = 8.0;
         ),
 
         Padding(
-          padding:  EdgeInsets.all(defaultPadding),
+          padding: EdgeInsets.all(defaultPadding),
           child: DropdownButtonHideUnderline(
             child: DropdownButtonFormField<String>(
               decoration: InputDecoration(
                 labelText: Cons.safarType,
                 border: const OutlineInputBorder(),
               ),
-
-
               onChanged: (safarType) =>
                   setState(() => _selectedSafarType = safarType),
               validator: isEmpty,
@@ -207,14 +233,205 @@ double defaultPadding = 8.0;
 
   String? isEmpty(value) {
     if (value == null || value.isEmpty) {
-      return 'Please enter some text';
+      return Cons.emptyMsg;
     }
     return null;
   }
 
-
   Widget getOrgInfo() {
-    return Container();
+    return Column(
+      children: [
+        Padding(
+          padding: EdgeInsets.all(defaultPadding),
+          child: TextFormField(
+            keyboardType: TextInputType.number,
+            validator: isEmpty,
+            controller: _totalPresent,
+            decoration: InputDecoration(
+              labelText: Cons.totalpresent,
+              border: OutlineInputBorder(),
+            ),
+            // The validator receives the text that the user has entered.
+          ),
+        ),
+        Padding(
+          padding: EdgeInsets.all(defaultPadding),
+          child: TextFormField(
+            controller: _sodossoKormiMuballigProttashi,
+            decoration: InputDecoration(
+              labelText: Cons.sodossoKormiMuballigProttashi,
+              border: OutlineInputBorder(),
+            ),
+            // The validator receives the text that the user has entered.
+          ),
+        ),
+
+
+        Padding(
+          padding: EdgeInsets.all(defaultPadding),
+          child: TextFormField(
+            controller: _thanaDayittoshil,
+            decoration: InputDecoration(
+              labelText: Cons.thanaDayittoshil,
+              border: OutlineInputBorder(),
+            ),
+            // The validator receives the text that the user has entered.
+          ),
+        ),
+
+        Padding(
+          padding: EdgeInsets.all(defaultPadding),
+          child: TextFormField(
+            controller: _jillaDayittoshil,
+            decoration: InputDecoration(
+              labelText: Cons.jillaDayittoshil,
+              border: OutlineInputBorder(),
+            ),
+            // The validator receives the text that the user has entered.
+          ),
+        ),
+
+        Padding(
+          padding: EdgeInsets.all(defaultPadding),
+          child: TextFormField(
+            controller: _diniShongothon,
+            decoration: InputDecoration(
+              labelText: Cons.diniShongothon,
+              border: OutlineInputBorder(),
+            ),
+            // The validator receives the text that the user has entered.
+          ),
+        ),
+
+        Padding(
+          padding: EdgeInsets.all(defaultPadding),
+          child: TextFormField(
+            controller: _islamiAndolan,
+            decoration: InputDecoration(
+              labelText: Cons.islamiAndolan,
+              border: OutlineInputBorder(),
+            ),
+            // The validator receives the text that the user has entered.
+          ),
+        ),
+
+
+         Padding(
+          padding: EdgeInsets.all(defaultPadding),
+          child: TextFormField(
+            controller: _otherPeople,
+            decoration: InputDecoration(
+              labelText: Cons.otherPeople,
+              border: OutlineInputBorder(),
+            ),
+            // The validator receives the text that the user has entered.
+          ),
+        ),
+
+
+
+         Padding(
+          padding: EdgeInsets.all(defaultPadding),
+          child: TextFormField(
+            validator: isEmpty,
+            controller: _activeJila,
+            decoration: InputDecoration(
+              labelText: Cons.activeJila,
+              border: OutlineInputBorder(),
+            ),
+            // The validator receives the text that the user has entered.
+          ),
+        ),
+
+
+         Padding(
+          padding: EdgeInsets.all(defaultPadding),
+          child: TextFormField(
+            controller: _activeThana,
+            decoration: InputDecoration(
+              labelText: Cons.activeThana,
+              border: OutlineInputBorder(),
+            ),
+            // The validator receives the text that the user has entered.
+          ),
+        ),
+
+
+
+         Padding(
+          padding: EdgeInsets.all(defaultPadding),
+          child: TextFormField(
+            controller: _inactiveCause,
+            decoration: InputDecoration(
+              labelText: Cons.inactiveCause,
+              border: OutlineInputBorder(),
+            ),
+            // The validator receives the text that the user has entered.
+          ),
+        ),
+
+
+         Padding(
+          padding: EdgeInsets.all(defaultPadding),
+          child: TextFormField(
+            validator: isEmpty,
+            controller: _monthlyReportToCenter,
+            decoration: InputDecoration(
+              labelText: Cons.monthlyReportToCenter,
+              border: OutlineInputBorder(),
+            ),
+            // The validator receives the text that the user has entered.
+          ),
+        ),
+
+
+
+         Padding(
+          padding: EdgeInsets.all(defaultPadding),
+          child: TextFormField(
+            validator: isEmpty,
+            controller: _monthlyMeeting,
+            decoration: InputDecoration(
+              labelText: Cons.monthlyMeeting,
+              border: OutlineInputBorder(),
+            ),
+            // The validator receives the text that the user has entered.
+          ),
+        ),
+
+
+         Padding(
+          padding: EdgeInsets.all(defaultPadding),
+          child: TextFormField(
+            validator: isEmpty,
+            controller: _monthlyMeetingAvgPresent,
+            decoration: InputDecoration(
+              labelText: Cons.monthlyMeetingAvgPresent,
+              border: OutlineInputBorder(),
+            ),
+            // The validator receives the text that the user has entered.
+          ),
+        ),
+
+
+
+         Padding(
+          padding: EdgeInsets.all(defaultPadding),
+          child: TextFormField(
+
+            controller: _visitToLowerBranch,
+            decoration: InputDecoration(
+              labelText: Cons.visitToLowerBranch,
+              border: OutlineInputBorder(),
+            ),
+            // The validator receives the text that the user has entered.
+          ),
+        ),
+
+
+
+      ],
+    );
   }
 }
 
@@ -234,6 +451,7 @@ class GetCard extends StatelessWidget {
           height: 10.0,
         ),
         Card(
+          color: Colors.amber,
           child: Padding(
             padding: const EdgeInsets.all(10.0),
             child: Text(cardText),

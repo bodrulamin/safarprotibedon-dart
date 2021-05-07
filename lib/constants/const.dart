@@ -9,9 +9,11 @@ class Cons {
   // Strings
 
   static var addSafar = "Add Safar";
+  static String? emptyMsg = "cannot be empty!";
 
+  //branch info
   static var branchInfo = 'Branch Info';
-  static var orgInfo = "Ogranizational Info";
+
   static var branchName = "Branch Name";
   static var branchPresidentName = "Branch President Name";
   static var safarDate = "Safar Date";
@@ -33,6 +35,28 @@ class Cons {
     'অন্যান্য',
   ];
 
+  //Org info
+  static var orgInfo = "Ogranizational Info";
+  static var totalpresent = 'Total Present';
+  static var sodossoKormiMuballigProttashi = "Sodoso/Kormi/Muballig Prottashi";
+  static var thanaDayittoshil = 'Thana Dayittoshil';
+  static var jillaDayittoshil = 'Jilla Dayittoshil';
+  static var diniShongothon = 'Dini Shongothon';
+  static var islamiAndolan = 'Islami Andolan';
+  static var otherPeople = 'Others';
+
+  /////////Activity
+  static var activeJila = 'Active Jila Dayittoshil';
+  static var activeThana = 'Active Thana Dayittoshil';
+  static var inactiveCause = 'Cause of inactivity';
+  static var monthlyReportToCenter='Monthly Report to center (yes/cause if no)';
+  static var monthlyMeeting='Monthly Meeting (Regular/Irregular)';
+  static var monthlyMeetingAvgPresent='Average Presence';
+  static var visitToLowerBranch = 'Visit to Lower Branch';
+
+
+  // Man power info
+  static var manpowerInfo = 'Man Power Info';
 
 
 }
