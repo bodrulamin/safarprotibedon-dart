@@ -15,8 +15,6 @@ class _AddSafarState extends State<AddSafar> {
   final _formKey = GlobalKey<FormState>();
   double defaultPadding = 8.0;
 
-
-
 // Branch info variables
   var _branchNameC = TextEditingController();
   var _dateC = TextEditingController();
@@ -42,7 +40,26 @@ class _AddSafarState extends State<AddSafar> {
   var _visitToLowerBranch = TextEditingController();
 
 
- 
+
+  // Manpower info variables
+  var _newSodosso= TextEditingController();
+  var _newKormi= TextEditingController();
+  var _newMuballigProttashi= TextEditingController();
+
+  var _sodossoTeam= TextEditingController();
+  var _kormiTeam = TextEditingController();
+  var _mubaligProttashiTeam = TextEditingController();
+
+  var _sodossoLokkhoMatra = TextEditingController();
+  var _kormiLokkhoMatra = TextEditingController();
+
+  var _sodossoShikkhaBoithok = TextEditingController();
+  var _kormiShikkhaBoithok = TextEditingController();
+  var _muballigProttashiShikkhaBoithok = TextEditingController();
+
+  var _jilaShobgujari = TextEditingController();
+  var _thanaShobgujari = TextEditingController();
+
 
 
 
@@ -81,12 +98,11 @@ class _AddSafarState extends State<AddSafar> {
 
                   // org Info
                   GetCard(cardText: Cons.orgInfo),
-
                   getOrgInfo(),
+
+                  // manpower
                   GetCard(cardText: Cons.manpowerInfo),
-
-
-
+                  getManpowerInfo(),
 
                   Row(
                     mainAxisAlignment: MainAxisAlignment.end,
@@ -265,8 +281,6 @@ class _AddSafarState extends State<AddSafar> {
             // The validator receives the text that the user has entered.
           ),
         ),
-
-
         Padding(
           padding: EdgeInsets.all(defaultPadding),
           child: TextFormField(
@@ -278,7 +292,6 @@ class _AddSafarState extends State<AddSafar> {
             // The validator receives the text that the user has entered.
           ),
         ),
-
         Padding(
           padding: EdgeInsets.all(defaultPadding),
           child: TextFormField(
@@ -290,7 +303,6 @@ class _AddSafarState extends State<AddSafar> {
             // The validator receives the text that the user has entered.
           ),
         ),
-
         Padding(
           padding: EdgeInsets.all(defaultPadding),
           child: TextFormField(
@@ -302,7 +314,6 @@ class _AddSafarState extends State<AddSafar> {
             // The validator receives the text that the user has entered.
           ),
         ),
-
         Padding(
           padding: EdgeInsets.all(defaultPadding),
           child: TextFormField(
@@ -314,9 +325,7 @@ class _AddSafarState extends State<AddSafar> {
             // The validator receives the text that the user has entered.
           ),
         ),
-
-
-         Padding(
+        Padding(
           padding: EdgeInsets.all(defaultPadding),
           child: TextFormField(
             controller: _otherPeople,
@@ -327,10 +336,7 @@ class _AddSafarState extends State<AddSafar> {
             // The validator receives the text that the user has entered.
           ),
         ),
-
-
-
-         Padding(
+        Padding(
           padding: EdgeInsets.all(defaultPadding),
           child: TextFormField(
             validator: isEmpty,
@@ -342,9 +348,7 @@ class _AddSafarState extends State<AddSafar> {
             // The validator receives the text that the user has entered.
           ),
         ),
-
-
-         Padding(
+        Padding(
           padding: EdgeInsets.all(defaultPadding),
           child: TextFormField(
             controller: _activeThana,
@@ -355,10 +359,7 @@ class _AddSafarState extends State<AddSafar> {
             // The validator receives the text that the user has entered.
           ),
         ),
-
-
-
-         Padding(
+        Padding(
           padding: EdgeInsets.all(defaultPadding),
           child: TextFormField(
             controller: _inactiveCause,
@@ -369,9 +370,7 @@ class _AddSafarState extends State<AddSafar> {
             // The validator receives the text that the user has entered.
           ),
         ),
-
-
-         Padding(
+        Padding(
           padding: EdgeInsets.all(defaultPadding),
           child: TextFormField(
             validator: isEmpty,
@@ -383,10 +382,7 @@ class _AddSafarState extends State<AddSafar> {
             // The validator receives the text that the user has entered.
           ),
         ),
-
-
-
-         Padding(
+        Padding(
           padding: EdgeInsets.all(defaultPadding),
           child: TextFormField(
             validator: isEmpty,
@@ -398,9 +394,7 @@ class _AddSafarState extends State<AddSafar> {
             // The validator receives the text that the user has entered.
           ),
         ),
-
-
-         Padding(
+        Padding(
           padding: EdgeInsets.all(defaultPadding),
           child: TextFormField(
             validator: isEmpty,
@@ -412,13 +406,9 @@ class _AddSafarState extends State<AddSafar> {
             // The validator receives the text that the user has entered.
           ),
         ),
-
-
-
-         Padding(
+        Padding(
           padding: EdgeInsets.all(defaultPadding),
           child: TextFormField(
-
             controller: _visitToLowerBranch,
             decoration: InputDecoration(
               labelText: Cons.visitToLowerBranch,
@@ -427,9 +417,169 @@ class _AddSafarState extends State<AddSafar> {
             // The validator receives the text that the user has entered.
           ),
         ),
+      ],
+    );
+  }
 
-
-
+  Widget getManpowerInfo() {
+    return Column(
+      children: [
+        Text(Cons.newIncrease),
+        Padding(
+          padding: EdgeInsets.all(defaultPadding),
+          child: TextFormField(
+            keyboardType: TextInputType.number,
+            validator: isEmpty,
+            controller: _newSodosso,
+            decoration: InputDecoration(
+              labelText: Cons.newSodosso,
+              border: OutlineInputBorder(),
+            ),
+            // The validator receives the text that the user has entered.
+          ),
+        ),
+        Padding(
+          padding: EdgeInsets.all(defaultPadding),
+          child: TextFormField(
+            validator: isEmpty,
+            controller: _newKormi,
+            decoration: InputDecoration(
+              labelText: Cons.newKormi,
+              border: OutlineInputBorder(),
+            ),
+            // The validator receives the text that the user has entered.
+          ),
+        ),
+        Padding(
+          padding: EdgeInsets.all(defaultPadding),
+          child: TextFormField(
+            validator: isEmpty,
+            controller: _newMuballigProttashi,
+            decoration: InputDecoration(
+              labelText: Cons.newMuballigProttashi,
+              border: OutlineInputBorder(),
+            ),
+            // The validator receives the text that the user has entered.
+          ),
+        ),
+        Text('MLS'),
+        Padding(
+          padding: EdgeInsets.all(defaultPadding),
+          child: TextFormField(
+            validator: isEmpty,
+            controller: _sodossoTeam,
+            decoration: InputDecoration(
+              labelText: Cons.sodossoTeam,
+              border: OutlineInputBorder(),
+            ),
+            // The validator receives the text that the user has entered.
+          ),
+        ),
+        Padding(
+          padding: EdgeInsets.all(defaultPadding),
+          child: TextFormField(
+            validator: isEmpty,
+            controller: _kormiTeam,
+            decoration: InputDecoration(
+              labelText: Cons.kormiTeam,
+              border: OutlineInputBorder(),
+            ),
+            // The validator receives the text that the user has entered.
+          ),
+        ),
+        Padding(
+          padding: EdgeInsets.all(defaultPadding),
+          child: TextFormField(
+            validator: isEmpty,
+            controller: _mubaligProttashiTeam,
+            decoration: InputDecoration(
+              labelText: Cons.mubaligProttashiTeam,
+              border: OutlineInputBorder(),
+            ),
+            // The validator receives the text that the user has entered.
+          ),
+        ),
+        Padding(
+          padding: EdgeInsets.all(defaultPadding),
+          child: TextFormField(
+            controller: _sodossoLokkhoMatra,
+            decoration: InputDecoration(
+              labelText: Cons.sodossoLokkhoMatra,
+              border: OutlineInputBorder(),
+            ),
+            // The validator receives the text that the user has entered.
+          ),
+        ),
+        Padding(
+          padding: EdgeInsets.all(defaultPadding),
+          child: TextFormField(
+            controller: _kormiLokkhoMatra,
+            decoration: InputDecoration(
+              labelText: Cons.kormiLokkhoMatra,
+              border: OutlineInputBorder(),
+            ),
+            // The validator receives the text that the user has entered.
+          ),
+        ),
+        Padding(
+          padding: EdgeInsets.all(defaultPadding),
+          child: TextFormField(
+            validator: isEmpty,
+            controller: _sodossoShikkhaBoithok,
+            decoration: InputDecoration(
+              labelText: Cons.sodossoShikkhaBoithok,
+              border: OutlineInputBorder(),
+            ),
+            // The validator receives the text that the user has entered.
+          ),
+        ),
+        Padding(
+          padding: EdgeInsets.all(defaultPadding),
+          child: TextFormField(
+            validator: isEmpty,
+            controller: _kormiShikkhaBoithok,
+            decoration: InputDecoration(
+              labelText: Cons.kormiShikkhaBoithok,
+              border: OutlineInputBorder(),
+            ),
+            // The validator receives the text that the user has entered.
+          ),
+        ),
+        Padding(
+          padding: EdgeInsets.all(defaultPadding),
+          child: TextFormField(
+            validator: isEmpty,
+            controller: _muballigProttashiShikkhaBoithok,
+            decoration: InputDecoration(
+              labelText: Cons.muballigProttashiShikkhaBoithok,
+              border: OutlineInputBorder(),
+            ),
+            // The validator receives the text that the user has entered.
+          ),
+        ),
+        Padding(
+          padding: EdgeInsets.all(defaultPadding),
+          child: TextFormField(
+            validator: isEmpty,
+            controller: _jilaShobgujari,
+            decoration: InputDecoration(
+              labelText: Cons.jilaShobgujari,
+              border: OutlineInputBorder(),
+            ),
+            // The validator receives the text that the user has entered.
+          ),
+        ),
+        Padding(
+          padding: EdgeInsets.all(defaultPadding),
+          child: TextFormField(
+            controller: _thanaShobgujari,
+            decoration: InputDecoration(
+              labelText: Cons.thanaShobgujari,
+              border: OutlineInputBorder(),
+            ),
+            // The validator receives the text that the user has entered.
+          ),
+        ),
       ],
     );
   }

@@ -58,5 +58,33 @@ class Cons {
   // Man power info
   static var manpowerInfo = 'Man Power Info';
 
+  static String newIncrease = "New increase";
+
+  static var newSodosso = 'New Sodosso';
+
+  static var newKormi = 'New kormi';
+
+  static var newMuballigProttashi = 'new muballig prottashi';
+
+  static var sodossoTeam = 'Sodosso Team';
+
+  static var kormiTeam = 'Kormi Team';
+
+  static var mubaligProttashiTeam = "Mubalig Prottashi Team" ;
+
+  static var sodossoLokkhoMatra = "SodossoLokkhoMatra";
+
+  static var kormiLokkhoMatra = 'kormiLokkhoMatra';
+
+  static var sodossoShikkhaBoithok = "sodossoShikkhaBoithok";
+
+  static var kormiShikkhaBoithok="kormiShikkhaBoithok" ;
+
+  static var muballigProttashiShikkhaBoithok = "muballigProttashiShikkhaBoithok";
+
+  static var jilaShobgujari = "jilaShobgujari";
+
+  static var thanaShobgujari = "thanaShobgujari";
+
 
 }
