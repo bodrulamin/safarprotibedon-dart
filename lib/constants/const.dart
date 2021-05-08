@@ -12,13 +12,13 @@ class Cons {
   static String? emptyMsg = "cannot be empty!";
 
   //branch info
-  static var branchInfo = 'Branch Info';
+  static var branchInfo = 'শাখার তথ্য';
 
-  static var branchName = "Branch Name";
-  static var branchPresidentName = "Branch President Name";
-  static var safarDate = "Safar Date";
-  static var location = "Location";
-  static String safarType = "Safar Type";
+  static var branchName = "শাখার নাম";
+  static var branchPresidentName = "শাখা সভাপতির নাম";
+  static var safarDate = "সফরের তারিখ";
+  static var location = "স্থান";
+  static String safarType = "সফরের ধরণ";
 
   static var safarTypes = [
     'জেলা সম্মেলন',
@@ -36,55 +36,78 @@ class Cons {
   ];
 
   //Org info
-  static var orgInfo = "Ogranizational Info";
-  static var totalpresent = 'Total Present';
-  static var sodossoKormiMuballigProttashi = "Sodoso/Kormi/Muballig Prottashi";
-  static var thanaDayittoshil = 'Thana Dayittoshil';
-  static var jillaDayittoshil = 'Jilla Dayittoshil';
-  static var diniShongothon = 'Dini Shongothon';
-  static var islamiAndolan = 'Islami Andolan';
-  static var otherPeople = 'Others';
+  static var orgInfo = "সাংগঠনিক তথ্য";
+  static var totalpresent = 'প্রোগ্রামে উপস্থিতি';
+  static var sodossoKormiMuballigProttashi = "সদস্য/কর্মী/মুবাল্লিগ প্রত্যাশী";
+  static var thanaDayittoshil = 'থানা দায়িত্বশীল';
+  static var jillaDayittoshil = 'জেলা দায়িত্বশীল';
+  static var diniShongothon = 'দ্বীনি সংগঠন';
+  static var islamiAndolan = 'ইসলামী আন্দোলন';
+  static var otherPeople = 'অন্যান্য';
 
   /////////Activity
-  static var activeJila = 'Active Jila Dayittoshil';
-  static var activeThana = 'Active Thana Dayittoshil';
-  static var inactiveCause = 'Cause of inactivity';
-  static var monthlyReportToCenter='Monthly Report to center (yes/cause if no)';
-  static var monthlyMeeting='Monthly Meeting (Regular/Irregular)';
-  static var monthlyMeetingAvgPresent='Average Presence';
-  static var visitToLowerBranch = 'Visit to Lower Branch';
-
+  static var activeJila = 'সক্রিয় জেলা দায়িত্বশীল';
+  static var activeThana = 'সক্রিয় থানা/উপজেলা দায়িত্বশীল';
+  static var inactiveCause = 'নিষ্ক্রীয়তার কারণ';
+  static var monthlyReportToCenter =
+      'কেন্দ্রে মাসিক প্রতিবেদন প্রেরণ : হ্যাঁ/না, না হলে কারণ';
+  static var monthlyMeeting = 'মাসিক বৈঠক (নিয়মিত/অনিয়মিত)';
+  static var monthlyMeetingAvgPresent = 'গড় উপস্থিতি';
+  static var visitToLowerBranch = 'অধঃস্তন শাখায় সফর';
 
   // Man power info
-  static var manpowerInfo = 'Man Power Info';
+  static var manpowerInfo = 'জনশক্তি সংক্রান্ত তথ্য';
 
-  static String newIncrease = "New increase";
+  static String newIncrease = "নতুন বৃদ্ধি";
 
-  static var newSodosso = 'New Sodosso';
+  static var newSodosso = 'নতুন সদস্য';
 
-  static var newKormi = 'New kormi';
+  static var newKormi = 'নতুন কর্মী';
 
-  static var newMuballigProttashi = 'new muballig prottashi';
+  static var newMuballigProttashi = 'নতুন মুবাল্লিগ প্রত্যাশী';
 
-  static var sodossoTeam = 'Sodosso Team';
+  static var sodossoTeam = 'সদস্য টিম';
 
-  static var kormiTeam = 'Kormi Team';
+  static var kormiTeam = 'কর্মী টিম';
 
-  static var mubaligProttashiTeam = "Mubalig Prottashi Team" ;
+  static var mubaligProttashiTeam = "মুবাল্লিগ প্রত্যাশী";
 
-  static var sodossoLokkhoMatra = "SodossoLokkhoMatra";
+  static var sodossoLokkhoMatra = "নতুল সদস্য লক্ষমাত্রা";
 
-  static var kormiLokkhoMatra = 'kormiLokkhoMatra';
+  static var kormiLokkhoMatra = 'নতুল কর্মী লক্ষমাত্রা';
 
-  static var sodossoShikkhaBoithok = "sodossoShikkhaBoithok";
+  static var sodossoShikkhaBoithok = "সদস্য শিক্ষা বৈঠক";
 
-  static var kormiShikkhaBoithok="kormiShikkhaBoithok" ;
+  static var kormiShikkhaBoithok = "কর্মী শিক্ষা বৈঠক";
 
-  static var muballigProttashiShikkhaBoithok = "muballigProttashiShikkhaBoithok";
+  static var muballigProttashiShikkhaBoithok =
+      "মুবাল্লিগ প্রত্যাশী শিক্ষা বৈঠক";
 
-  static var jilaShobgujari = "jilaShobgujari";
+  static var jilaShobgujari = "জেলায় শবগুজারী";
 
-  static var thanaShobgujari = "thanaShobgujari";
+  static var thanaShobgujari = "থানায় শবগুজারী";
+
+  static var prokashonaInfo = "প্রকাশনা সংক্রান্ত তথ্য";
+
+  static var prokashonaKroy="প্রকাশনা ক্রয়";
+  static var prokashonaBikroy="প্রকাশনা বিক্রয়";
+  static var noboChintaKroy="নবচিন্তা ক্রয়";
+  static var nokibKroy="নকীব ক্রয়";
+  static var dayittoShilEyanot="দায়িত্বশীল এয়ানত";
+  static var shudiEyanot="সূধী এয়ানত";
+  static var odhostonEyanot="অধঃস্তন শাখা এয়ানত";
+  static var centralMonthlyEyanot="কেন্দ্রে মাসিক এয়ানত প্রদান";
+  static var hasBranchOffice="শাখা অফিস: আছে/নেই";
+  static var branchOfficailCondition="শাখার দাফতরিক অবস্থা: খুব ভালো/ভালো/মোটামুটি/ভালো না থাকলে কতদিনে হবে";
+  static var withAndolan="আন্দোলনের সাথে";
+  static var withBMC="বামুকের সাথে";
+  static var withOthers="অন্যান্যদের সাথে";
+  static var branchProblem="শাখা সমস্যা";
+  static var branchPossiblity="শাখা সম্ভাবনা";
+  static var economicInfo="অর্থ সংক্রান্ত তথ্য";
+  static var officialInfo="দাপ্তরিক তথ্য";
+  static var externalConnectionInfo="বহিঃসম্পর্ক";
+
 
 
 }

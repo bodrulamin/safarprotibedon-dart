@@ -39,14 +39,12 @@ class _AddSafarState extends State<AddSafar> {
   var _monthlyMeetingAvgPresent = TextEditingController();
   var _visitToLowerBranch = TextEditingController();
 
-
-
   // Manpower info variables
-  var _newSodosso= TextEditingController();
-  var _newKormi= TextEditingController();
-  var _newMuballigProttashi= TextEditingController();
+  var _newSodosso = TextEditingController();
+  var _newKormi = TextEditingController();
+  var _newMuballigProttashi = TextEditingController();
 
-  var _sodossoTeam= TextEditingController();
+  var _sodossoTeam = TextEditingController();
   var _kormiTeam = TextEditingController();
   var _mubaligProttashiTeam = TextEditingController();
 
@@ -60,7 +58,33 @@ class _AddSafarState extends State<AddSafar> {
   var _jilaShobgujari = TextEditingController();
   var _thanaShobgujari = TextEditingController();
 
+  // prokashona info variables
+  var _prokashonaKroy = TextEditingController();
+  var _prokashonaBikroy = TextEditingController();
+  var _noboChintaKroy = TextEditingController();
+  var _nokibKroy = TextEditingController();
 
+
+    // Economic info variables
+
+  var _dayittoShilEyanot = TextEditingController();
+  var _shudiEyanot = TextEditingController();
+  var _odhostonEyanot = TextEditingController();
+  var _centralMonthlyEyanot = TextEditingController();
+
+
+
+     // official info variables
+  var _hasBranchOffice = TextEditingController();
+  var _branchOfficailCondition = TextEditingController();
+
+
+  // external relation info variables
+  var _withAndolan = TextEditingController();
+  var _withBMC = TextEditingController();
+  var _withOthers = TextEditingController();
+  var _branchProblem = TextEditingController();
+  var _branchPossiblity = TextEditingController();
 
 
 
@@ -104,6 +128,22 @@ class _AddSafarState extends State<AddSafar> {
                   GetCard(cardText: Cons.manpowerInfo),
                   getManpowerInfo(),
 
+                  // prokashona
+                  GetCard(cardText: Cons.prokashonaInfo),
+                  getPubInfo(),
+
+                  // Economic info
+                  GetCard(cardText: Cons.economicInfo),
+                  getEconomicInfo(),
+
+                  // Office info
+                  GetCard(cardText: Cons.officialInfo),
+                  getOfficialInfo(),
+
+                  // external connection info
+                  GetCard(cardText: Cons.externalConnectionInfo),
+                  getExternalConnection(),
+
                   Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
@@ -126,6 +166,12 @@ class _AddSafarState extends State<AddSafar> {
                             if (_formKey.currentState!.validate()) {
                               // If the form is valid, display a snackbar. In the real world,
                               // you'd often call a server or save the information in a database.
+
+
+
+
+
+
                               ScaffoldMessenger.of(context).showSnackBar(
                                   SnackBar(content: Text(_branchNameC.text)));
                             }
@@ -284,6 +330,7 @@ class _AddSafarState extends State<AddSafar> {
         Padding(
           padding: EdgeInsets.all(defaultPadding),
           child: TextFormField(
+            keyboardType: TextInputType.number,
             controller: _thanaDayittoshil,
             decoration: InputDecoration(
               labelText: Cons.thanaDayittoshil,
@@ -295,6 +342,7 @@ class _AddSafarState extends State<AddSafar> {
         Padding(
           padding: EdgeInsets.all(defaultPadding),
           child: TextFormField(
+            keyboardType: TextInputType.number,
             controller: _jillaDayittoshil,
             decoration: InputDecoration(
               labelText: Cons.jillaDayittoshil,
@@ -306,6 +354,7 @@ class _AddSafarState extends State<AddSafar> {
         Padding(
           padding: EdgeInsets.all(defaultPadding),
           child: TextFormField(
+            keyboardType: TextInputType.number,
             controller: _diniShongothon,
             decoration: InputDecoration(
               labelText: Cons.diniShongothon,
@@ -317,6 +366,7 @@ class _AddSafarState extends State<AddSafar> {
         Padding(
           padding: EdgeInsets.all(defaultPadding),
           child: TextFormField(
+            keyboardType: TextInputType.number,
             controller: _islamiAndolan,
             decoration: InputDecoration(
               labelText: Cons.islamiAndolan,
@@ -328,6 +378,7 @@ class _AddSafarState extends State<AddSafar> {
         Padding(
           padding: EdgeInsets.all(defaultPadding),
           child: TextFormField(
+            keyboardType: TextInputType.number,
             controller: _otherPeople,
             decoration: InputDecoration(
               labelText: Cons.otherPeople,
@@ -339,6 +390,7 @@ class _AddSafarState extends State<AddSafar> {
         Padding(
           padding: EdgeInsets.all(defaultPadding),
           child: TextFormField(
+            keyboardType: TextInputType.number,
             validator: isEmpty,
             controller: _activeJila,
             decoration: InputDecoration(
@@ -351,6 +403,7 @@ class _AddSafarState extends State<AddSafar> {
         Padding(
           padding: EdgeInsets.all(defaultPadding),
           child: TextFormField(
+            keyboardType: TextInputType.number,
             controller: _activeThana,
             decoration: InputDecoration(
               labelText: Cons.activeThana,
@@ -397,6 +450,7 @@ class _AddSafarState extends State<AddSafar> {
         Padding(
           padding: EdgeInsets.all(defaultPadding),
           child: TextFormField(
+            keyboardType: TextInputType.number,
             validator: isEmpty,
             controller: _monthlyMeetingAvgPresent,
             decoration: InputDecoration(
@@ -441,6 +495,7 @@ class _AddSafarState extends State<AddSafar> {
         Padding(
           padding: EdgeInsets.all(defaultPadding),
           child: TextFormField(
+            keyboardType: TextInputType.number,
             validator: isEmpty,
             controller: _newKormi,
             decoration: InputDecoration(
@@ -453,6 +508,7 @@ class _AddSafarState extends State<AddSafar> {
         Padding(
           padding: EdgeInsets.all(defaultPadding),
           child: TextFormField(
+            keyboardType: TextInputType.number,
             validator: isEmpty,
             controller: _newMuballigProttashi,
             decoration: InputDecoration(
@@ -466,6 +522,7 @@ class _AddSafarState extends State<AddSafar> {
         Padding(
           padding: EdgeInsets.all(defaultPadding),
           child: TextFormField(
+            keyboardType: TextInputType.number,
             validator: isEmpty,
             controller: _sodossoTeam,
             decoration: InputDecoration(
@@ -478,6 +535,7 @@ class _AddSafarState extends State<AddSafar> {
         Padding(
           padding: EdgeInsets.all(defaultPadding),
           child: TextFormField(
+            keyboardType: TextInputType.number,
             validator: isEmpty,
             controller: _kormiTeam,
             decoration: InputDecoration(
@@ -490,6 +548,7 @@ class _AddSafarState extends State<AddSafar> {
         Padding(
           padding: EdgeInsets.all(defaultPadding),
           child: TextFormField(
+            keyboardType: TextInputType.number,
             validator: isEmpty,
             controller: _mubaligProttashiTeam,
             decoration: InputDecoration(
@@ -502,6 +561,7 @@ class _AddSafarState extends State<AddSafar> {
         Padding(
           padding: EdgeInsets.all(defaultPadding),
           child: TextFormField(
+            keyboardType: TextInputType.number,
             controller: _sodossoLokkhoMatra,
             decoration: InputDecoration(
               labelText: Cons.sodossoLokkhoMatra,
@@ -513,6 +573,7 @@ class _AddSafarState extends State<AddSafar> {
         Padding(
           padding: EdgeInsets.all(defaultPadding),
           child: TextFormField(
+            keyboardType: TextInputType.number,
             controller: _kormiLokkhoMatra,
             decoration: InputDecoration(
               labelText: Cons.kormiLokkhoMatra,
@@ -524,6 +585,7 @@ class _AddSafarState extends State<AddSafar> {
         Padding(
           padding: EdgeInsets.all(defaultPadding),
           child: TextFormField(
+            keyboardType: TextInputType.number,
             validator: isEmpty,
             controller: _sodossoShikkhaBoithok,
             decoration: InputDecoration(
@@ -536,6 +598,7 @@ class _AddSafarState extends State<AddSafar> {
         Padding(
           padding: EdgeInsets.all(defaultPadding),
           child: TextFormField(
+            keyboardType: TextInputType.number,
             validator: isEmpty,
             controller: _kormiShikkhaBoithok,
             decoration: InputDecoration(
@@ -548,6 +611,7 @@ class _AddSafarState extends State<AddSafar> {
         Padding(
           padding: EdgeInsets.all(defaultPadding),
           child: TextFormField(
+            keyboardType: TextInputType.number,
             validator: isEmpty,
             controller: _muballigProttashiShikkhaBoithok,
             decoration: InputDecoration(
@@ -560,6 +624,7 @@ class _AddSafarState extends State<AddSafar> {
         Padding(
           padding: EdgeInsets.all(defaultPadding),
           child: TextFormField(
+            keyboardType: TextInputType.number,
             validator: isEmpty,
             controller: _jilaShobgujari,
             decoration: InputDecoration(
@@ -572,9 +637,228 @@ class _AddSafarState extends State<AddSafar> {
         Padding(
           padding: EdgeInsets.all(defaultPadding),
           child: TextFormField(
+            keyboardType: TextInputType.number,
             controller: _thanaShobgujari,
             decoration: InputDecoration(
               labelText: Cons.thanaShobgujari,
+              border: OutlineInputBorder(),
+            ),
+            // The validator receives the text that the user has entered.
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget getPubInfo() {
+    return Column(
+      children: [
+        Padding(
+          padding: EdgeInsets.all(defaultPadding),
+          child: TextFormField(
+            keyboardType: TextInputType.number,
+            validator: isEmpty,
+            controller: _prokashonaKroy,
+            decoration: InputDecoration(
+              labelText: Cons.prokashonaKroy,
+              border: OutlineInputBorder(),
+            ),
+            // The validator receives the text that the user has entered.
+          ),
+        ),
+        Padding(
+          padding: EdgeInsets.all(defaultPadding),
+          child: TextFormField(
+            keyboardType: TextInputType.number,
+            validator: isEmpty,
+            controller: _prokashonaBikroy,
+            decoration: InputDecoration(
+              labelText: Cons.prokashonaBikroy,
+              border: OutlineInputBorder(),
+            ),
+            // The validator receives the text that the user has entered.
+          ),
+        ),
+        Padding(
+          padding: EdgeInsets.all(defaultPadding),
+          child: TextFormField(
+            keyboardType: TextInputType.number,
+            validator: isEmpty,
+            controller: _noboChintaKroy,
+            decoration: InputDecoration(
+              labelText: Cons.noboChintaKroy,
+              border: OutlineInputBorder(),
+            ),
+            // The validator receives the text that the user has entered.
+          ),
+        ),
+        Padding(
+          padding: EdgeInsets.all(defaultPadding),
+          child: TextFormField(
+            keyboardType: TextInputType.number,
+            validator: isEmpty,
+            controller: _nokibKroy,
+            decoration: InputDecoration(
+              labelText: Cons.nokibKroy,
+              border: OutlineInputBorder(),
+            ),
+            // The validator receives the text that the user has entered.
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget getEconomicInfo() {
+    return Column(
+      children: [
+        Padding(
+          padding: EdgeInsets.all(defaultPadding),
+          child: TextFormField(
+            keyboardType: TextInputType.number,
+            validator: isEmpty,
+            controller: _dayittoShilEyanot,
+            decoration: InputDecoration(
+              labelText: Cons.dayittoShilEyanot,
+              border: OutlineInputBorder(),
+            ),
+            // The validator receives the text that the user has entered.
+          ),
+        ),
+        Padding(
+          padding: EdgeInsets.all(defaultPadding),
+          child: TextFormField(
+            keyboardType: TextInputType.number,
+            validator: isEmpty,
+            controller: _shudiEyanot,
+            decoration: InputDecoration(
+              labelText: Cons.shudiEyanot,
+              border: OutlineInputBorder(),
+            ),
+            // The validator receives the text that the user has entered.
+          ),
+        ),
+        Padding(
+          padding: EdgeInsets.all(defaultPadding),
+          child: TextFormField(
+            keyboardType: TextInputType.number,
+            validator: isEmpty,
+            controller: _odhostonEyanot,
+            decoration: InputDecoration(
+              labelText: Cons.odhostonEyanot,
+              border: OutlineInputBorder(),
+            ),
+            // The validator receives the text that the user has entered.
+          ),
+        ),
+        Padding(
+          padding: EdgeInsets.all(defaultPadding),
+          child: TextFormField(
+            keyboardType: TextInputType.number,
+            validator: isEmpty,
+            controller: _centralMonthlyEyanot,
+            decoration: InputDecoration(
+              labelText: Cons.centralMonthlyEyanot,
+              border: OutlineInputBorder(),
+            ),
+            // The validator receives the text that the user has entered.
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget getOfficialInfo() {
+    return Column(
+      children: [
+        Padding(
+          padding: EdgeInsets.all(defaultPadding),
+          child: TextFormField(
+            keyboardType: TextInputType.number,
+
+            controller: _hasBranchOffice,
+            decoration: InputDecoration(
+              labelText: Cons.hasBranchOffice,
+              border: OutlineInputBorder(),
+            ),
+            // The validator receives the text that the user has entered.
+          ),
+        ),
+        Padding(
+          padding: EdgeInsets.all(defaultPadding),
+          child: TextFormField(
+            keyboardType: TextInputType.number,
+            validator: isEmpty,
+            controller: _branchOfficailCondition,
+            decoration: InputDecoration(
+              labelText: Cons.branchOfficailCondition,
+              border: OutlineInputBorder(),
+            ),
+            // The validator receives the text that the user has entered.
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget getExternalConnection() {
+    return Column(
+      children: [
+        Padding(
+          padding: EdgeInsets.all(defaultPadding),
+          child: TextFormField(
+            validator: isEmpty,
+            controller: _withAndolan,
+            decoration: InputDecoration(
+              labelText: Cons.withAndolan,
+              border: OutlineInputBorder(),
+            ),
+            // The validator receives the text that the user has entered.
+          ),
+        ),
+        Padding(
+          padding: EdgeInsets.all(defaultPadding),
+          child: TextFormField(
+            validator: isEmpty,
+            controller: _withBMC,
+            decoration: InputDecoration(
+              labelText: Cons.withBMC,
+              border: OutlineInputBorder(),
+            ),
+            // The validator receives the text that the user has entered.
+          ),
+        ),
+        Padding(
+          padding: EdgeInsets.all(defaultPadding),
+          child: TextFormField(
+            validator: isEmpty,
+            controller: _withOthers,
+            decoration: InputDecoration(
+              labelText: Cons.withOthers,
+              border: OutlineInputBorder(),
+            ),
+            // The validator receives the text that the user has entered.
+          ),
+        ),
+        Padding(
+          padding: EdgeInsets.all(defaultPadding),
+          child: TextFormField(
+            validator: isEmpty,
+            controller: _branchProblem,
+            decoration: InputDecoration(
+              labelText: Cons.branchProblem,
+              border: OutlineInputBorder(),
+            ),
+            // The validator receives the text that the user has entered.
+          ),
+        ),
+        Padding(
+          padding: EdgeInsets.all(defaultPadding),
+          child: TextFormField(
+            validator: isEmpty,
+            controller: _branchPossiblity,
+            decoration: InputDecoration(
+              labelText: Cons.branchPossiblity,
               border: OutlineInputBorder(),
             ),
             // The validator receives the text that the user has entered.
