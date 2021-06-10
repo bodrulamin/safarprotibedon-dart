@@ -1,8 +1,10 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
 import 'package:intl/intl.dart';
 import 'package:safarprotibedon/constants/const.dart';
+import 'package:safarprotibedon/model/safar_model.dart';
 
 class AddSafar extends StatefulWidget {
   @override
@@ -16,10 +18,10 @@ class _AddSafarState extends State<AddSafar> {
   double defaultPadding = 8.0;
 
 // Branch info variables
-  var _branchNameC = TextEditingController();
-  var _dateC = TextEditingController();
-  var _locationC = TextEditingController();
-  var _branchPresidentNameC = TextEditingController();
+  var _branchName = TextEditingController();
+  var _date = TextEditingController();
+  var _location = TextEditingController();
+  var _branchPresidentName = TextEditingController();
   var _selectedSafarType;
 
   // Org info variables
@@ -64,20 +66,16 @@ class _AddSafarState extends State<AddSafar> {
   var _noboChintaKroy = TextEditingController();
   var _nokibKroy = TextEditingController();
 
-
-    // Economic info variables
+  // Economic info variables
 
   var _dayittoShilEyanot = TextEditingController();
   var _shudiEyanot = TextEditingController();
   var _odhostonEyanot = TextEditingController();
   var _centralMonthlyEyanot = TextEditingController();
 
-
-
-     // official info variables
+  // official info variables
   var _hasBranchOffice = TextEditingController();
   var _branchOfficailCondition = TextEditingController();
-
 
   // external relation info variables
   var _withAndolan = TextEditingController();
@@ -86,9 +84,7 @@ class _AddSafarState extends State<AddSafar> {
   var _branchProblem = TextEditingController();
   var _branchPossiblity = TextEditingController();
 
-
-
-
+  late DateTime safarDate;
 
   Color getColorRedAmber(Set<MaterialState> states) {
     const Set<MaterialState> interactiveStates = <MaterialState>{
@@ -150,10 +146,7 @@ class _AddSafarState extends State<AddSafar> {
                       Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: ElevatedButton(
-                          style: ButtonStyle(
-                              backgroundColor:
-                                  MaterialStateProperty.resolveWith(
-                                      getColorRedAmber)),
+                          style: ButtonStyle(backgroundColor: MaterialStateProperty.resolveWith(getColorRedAmber)),
                           onPressed: () {},
                           child: Text('Cancel'),
                         ),
@@ -167,13 +160,11 @@ class _AddSafarState extends State<AddSafar> {
                               // If the form is valid, display a snackbar. In the real world,
                               // you'd often call a server or save the information in a database.
 
+                             addToFirebase();
 
 
 
-
-
-                              ScaffoldMessenger.of(context).showSnackBar(
-                                  SnackBar(content: Text(_branchNameC.text)));
+                              ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(_branchName.text)));
                             }
                           },
                           child: Text('Submit'),
@@ -190,6 +181,65 @@ class _AddSafarState extends State<AddSafar> {
     );
   }
 
+  void addToFirebase() {
+        var safar = Safar(
+        branchName:_branchName.text.toString(),
+        safarDate:safarDate,
+        location:_location.text.toString(),
+        branchPresidentName:_branchPresidentName.text.toString(),
+        safarType:_selectedSafarType,
+        totalpresent:_totalPresent.text.toString(),
+        sodossoKormiMuballigProttashi:_sodossoKormiMuballigProttashi.text.toString(),
+        thanaDayittoshil:_thanaDayittoshil.text.toString(),
+        jillaDayittoshil:_jillaDayittoshil.text.toString(),
+        diniShongothon:_diniShongothon.text.toString(),
+        islamiAndolan:_islamiAndolan.text.toString(),
+        otherPeople:_otherPeople.text.toString(),
+        activeJila:_activeJila.text.toString(),
+        activeThana:_activeThana.text.toString(),
+        inactiveCause:_inactiveCause.text.toString(),
+        monthlyReportToCenter:_monthlyReportToCenter.text.toString(),
+        monthlyMeeting:_monthlyMeeting.text.toString(),
+        monthlyMeetingAvgPresent:_monthlyMeetingAvgPresent.text.toString(),
+        visitToLowerBranch:_visitToLowerBranch.text.toString(),
+        newSodosso:_newSodosso.text.toString(),
+        newKormi:_newKormi.text.toString(),
+        newMuballigProttashi:_newMuballigProttashi.text.toString(),
+        sodossoTeam:_sodossoTeam.text.toString(),
+        kormiTeam:_kormiTeam.text.toString(),
+        mubaligProttashiTeam:_mubaligProttashiTeam.text.toString(),
+        sodossoLokkhoMatra:_sodossoLokkhoMatra.text.toString(),
+        kormiLokkhoMatra:_kormiLokkhoMatra.text.toString(),
+        sodossoShikkhaBoithok:_sodossoShikkhaBoithok.text.toString(),
+        kormiShikkhaBoithok:_kormiShikkhaBoithok.text.toString(),
+        muballigProttashiShikkhaBoithok:_muballigProttashiShikkhaBoithok.text.toString(),
+        jilaShobgujari:_jilaShobgujari.text.toString(),
+        thanaShobgujari:_thanaShobgujari.text.toString(),
+        prokashonaKroy:_prokashonaKroy.text.toString(),
+        prokashonaBikroy:_prokashonaBikroy.text.toString(),
+        noboChintaKroy:_noboChintaKroy.text.toString(),
+        nokibKroy:_nokibKroy.text.toString(),
+        dayittoShilEyanot:_dayittoShilEyanot.text.toString(),
+        shudiEyanot:_shudiEyanot.text.toString(),
+        odhostonEyanot:_odhostonEyanot.text.toString(),
+        centralMonthlyEyanot:_centralMonthlyEyanot.text.toString(),
+        hasBranchOffice:_hasBranchOffice.text.toString(),
+        branchOfficailCondition:_branchOfficailCondition.text.toString(),
+        withAndolan:_withAndolan.text.toString(),
+        withBMC:_withBMC.text.toString(),
+        withOthers:_withOthers.text.toString(),
+        branchProblem:_branchProblem.text.toString(),
+        branchPossiblity:_branchPossiblity.text.toString()
+    );
+
+
+    
+    var fdb = FirebaseFirestore.instance;
+    fdb.collection('safar').doc().set(safar.toMap());
+  }
+
+
+
   Widget getBranchInfo() {
     return Column(
       children: [
@@ -197,7 +247,7 @@ class _AddSafarState extends State<AddSafar> {
         Padding(
           padding: EdgeInsets.all(defaultPadding),
           child: TextFormField(
-            controller: _branchNameC,
+            controller: _branchName,
             decoration: InputDecoration(
               labelText: Cons.branchName,
               border: OutlineInputBorder(),
@@ -212,7 +262,7 @@ class _AddSafarState extends State<AddSafar> {
           padding: EdgeInsets.all(defaultPadding),
           child: TextFormField(
             validator: isEmpty,
-            controller: _dateC,
+            controller: _date,
             onTap: () {
               DateTime now = DateTime.now();
 
@@ -225,9 +275,10 @@ class _AddSafarState extends State<AddSafar> {
                   // print('change $date');
                 },
                 onConfirm: (date) {
+                  safarDate = date;
                   String dayName = DateFormat.EEEE('en_US').format(date);
                   String formattedDate = DateFormat('dd-MM-yyyy').format(date);
-                  _dateC.text = formattedDate + " " + dayName;
+                  _date.text = formattedDate + " " + dayName;
                 },
                 currentTime: DateTime.now(),
                 locale: LocaleType.bn,
@@ -246,7 +297,7 @@ class _AddSafarState extends State<AddSafar> {
           padding: EdgeInsets.all(defaultPadding),
           child: TextFormField(
             validator: isEmpty,
-            controller: _locationC,
+            controller: _location,
             decoration: InputDecoration(
               labelText: Cons.location,
               border: OutlineInputBorder(),
@@ -259,7 +310,7 @@ class _AddSafarState extends State<AddSafar> {
           padding: EdgeInsets.all(defaultPadding),
           child: TextFormField(
             validator: isEmpty,
-            controller: _branchPresidentNameC,
+            controller: _branchPresidentName,
             decoration: InputDecoration(
               labelText: Cons.branchPresidentName,
               border: OutlineInputBorder(),
@@ -276,11 +327,9 @@ class _AddSafarState extends State<AddSafar> {
                 labelText: Cons.safarType,
                 border: const OutlineInputBorder(),
               ),
-              onChanged: (safarType) =>
-                  setState(() => _selectedSafarType = safarType),
+              onChanged: (safarType) => setState(() => _selectedSafarType = safarType),
               validator: isEmpty,
-              items:
-                  Cons.safarTypes.map<DropdownMenuItem<String>>((String value) {
+              items: Cons.safarTypes.map<DropdownMenuItem<String>>((String value) {
                 return DropdownMenuItem<String>(
                   value: value,
                   child: Text(value),
@@ -295,10 +344,18 @@ class _AddSafarState extends State<AddSafar> {
 
   String? isEmpty(value) {
     if (value == null || value.isEmpty) {
-      return Cons.emptyMsg;
+      return null;
     }
     return null;
   }
+
+  //
+  // String? isEmpty(value) {
+  //   if (value == null || value.isEmpty) {
+  //     return Cons.emptyMsg;
+  //   }
+  //   return null;
+  // }
 
   Widget getOrgInfo() {
     return Column(

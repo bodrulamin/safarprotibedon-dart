@@ -1,3 +1,4 @@
+
 class Cons {
   // routes
   static final mainPage = "/";
@@ -59,54 +60,56 @@ class Cons {
   static var manpowerInfo = 'জনশক্তি সংক্রান্ত তথ্য';
 
   static String newIncrease = "নতুন বৃদ্ধি";
-
   static var newSodosso = 'নতুন সদস্য';
-
   static var newKormi = 'নতুন কর্মী';
-
   static var newMuballigProttashi = 'নতুন মুবাল্লিগ প্রত্যাশী';
-
   static var sodossoTeam = 'সদস্য টিম';
-
   static var kormiTeam = 'কর্মী টিম';
-
   static var mubaligProttashiTeam = "মুবাল্লিগ প্রত্যাশী";
-
   static var sodossoLokkhoMatra = "নতুল সদস্য লক্ষমাত্রা";
-
   static var kormiLokkhoMatra = 'নতুল কর্মী লক্ষমাত্রা';
-
   static var sodossoShikkhaBoithok = "সদস্য শিক্ষা বৈঠক";
-
   static var kormiShikkhaBoithok = "কর্মী শিক্ষা বৈঠক";
-
   static var muballigProttashiShikkhaBoithok =
       "মুবাল্লিগ প্রত্যাশী শিক্ষা বৈঠক";
-
   static var jilaShobgujari = "জেলায় শবগুজারী";
-
   static var thanaShobgujari = "থানায় শবগুজারী";
 
+
+
+// prokashona info
   static var prokashonaInfo = "প্রকাশনা সংক্রান্ত তথ্য";
 
   static var prokashonaKroy="প্রকাশনা ক্রয়";
   static var prokashonaBikroy="প্রকাশনা বিক্রয়";
   static var noboChintaKroy="নবচিন্তা ক্রয়";
   static var nokibKroy="নকীব ক্রয়";
+
+  //economic info
+  static var economicInfo="অর্থ সংক্রান্ত তথ্য";
+
   static var dayittoShilEyanot="দায়িত্বশীল এয়ানত";
   static var shudiEyanot="সূধী এয়ানত";
   static var odhostonEyanot="অধঃস্তন শাখা এয়ানত";
   static var centralMonthlyEyanot="কেন্দ্রে মাসিক এয়ানত প্রদান";
+
+  // official info
+  static var officialInfo="দাপ্তরিক তথ্য";
+
   static var hasBranchOffice="শাখা অফিস: আছে/নেই";
   static var branchOfficailCondition="শাখার দাফতরিক অবস্থা: খুব ভালো/ভালো/মোটামুটি/ভালো না থাকলে কতদিনে হবে";
+
+  // external relation
+  static var externalConnectionInfo="বহিঃসম্পর্ক";
+
   static var withAndolan="আন্দোলনের সাথে";
   static var withBMC="বামুকের সাথে";
   static var withOthers="অন্যান্যদের সাথে";
   static var branchProblem="শাখা সমস্যা";
   static var branchPossiblity="শাখা সম্ভাবনা";
-  static var economicInfo="অর্থ সংক্রান্ত তথ্য";
-  static var officialInfo="দাপ্তরিক তথ্য";
-  static var externalConnectionInfo="বহিঃসম্পর্ক";
+
+
+
 
 
 
