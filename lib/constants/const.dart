@@ -1,4 +1,3 @@
-
 class Cons {
   // routes
   static final mainPage = "/";
@@ -52,8 +51,7 @@ class Cons {
   static var activeJila = 'সক্রিয় জেলা দায়িত্বশীল';
   static var activeThana = 'সক্রিয় থানা/উপজেলা দায়িত্বশীল';
   static var inactiveCause = 'নিষ্ক্রীয়তার কারণ';
-  static var monthlyReportToCenter =
-      'কেন্দ্রে মাসিক প্রতিবেদন প্রেরণ : হ্যাঁ/না, না হলে কারণ';
+  static var monthlyReportToCenter = 'কেন্দ্রে মাসিক প্রতিবেদন প্রেরণ : হ্যাঁ/না, না হলে কারণ';
   static var monthlyMeeting = 'মাসিক বৈঠক (নিয়মিত/অনিয়মিত)';
   static var monthlyMeetingAvgPresent = 'গড় উপস্থিতি';
   static var visitToLowerBranch = 'অধঃস্তন শাখায় সফর';
@@ -68,52 +66,42 @@ class Cons {
   static var sodossoTeam = 'সদস্য টিম';
   static var kormiTeam = 'কর্মী টিম';
   static var mubaligProttashiTeam = "মুবাল্লিগ প্রত্যাশী";
-  static var sodossoLokkhoMatra = "নতুল সদস্য লক্ষমাত্রা";
-  static var kormiLokkhoMatra = 'নতুল কর্মী লক্ষমাত্রা';
+  static var sodossoLokkhoMatra = "নতুন সদস্য লক্ষমাত্রা";
+  static var kormiLokkhoMatra = 'নতুন কর্মী লক্ষমাত্রা';
   static var sodossoShikkhaBoithok = "সদস্য শিক্ষা বৈঠক";
   static var kormiShikkhaBoithok = "কর্মী শিক্ষা বৈঠক";
-  static var muballigProttashiShikkhaBoithok =
-      "মুবাল্লিগ প্রত্যাশী শিক্ষা বৈঠক";
+  static var muballigProttashiShikkhaBoithok = "মুবাল্লিগ প্রত্যাশী শিক্ষা বৈঠক";
   static var jilaShobgujari = "জেলায় শবগুজারী";
   static var thanaShobgujari = "থানায় শবগুজারী";
-
-
 
 // prokashona info
   static var prokashonaInfo = "প্রকাশনা সংক্রান্ত তথ্য";
 
-  static var prokashonaKroy="প্রকাশনা ক্রয়";
-  static var prokashonaBikroy="প্রকাশনা বিক্রয়";
-  static var noboChintaKroy="নবচিন্তা ক্রয়";
-  static var nokibKroy="নকীব ক্রয়";
+  static var prokashonaKroy = "প্রকাশনা ক্রয়";
+  static var prokashonaBikroy = "প্রকাশনা বিক্রয়";
+  static var noboChintaKroy = "নবচিন্তা ক্রয়";
+  static var nokibKroy = "নকীব ক্রয়";
 
   //economic info
-  static var economicInfo="অর্থ সংক্রান্ত তথ্য";
+  static var economicInfo = "অর্থ সংক্রান্ত তথ্য";
 
-  static var dayittoShilEyanot="দায়িত্বশীল এয়ানত";
-  static var shudiEyanot="সূধী এয়ানত";
-  static var odhostonEyanot="অধঃস্তন শাখা এয়ানত";
-  static var centralMonthlyEyanot="কেন্দ্রে মাসিক এয়ানত প্রদান";
+  static var dayittoShilEyanot = "দায়িত্বশীল এয়ানত";
+  static var shudiEyanot = "সূধী এয়ানত";
+  static var odhostonEyanot = "অধঃস্তন শাখা এয়ানত";
+  static var centralMonthlyEyanot = "কেন্দ্রে মাসিক এয়ানত প্রদান";
 
   // official info
-  static var officialInfo="দাপ্তরিক তথ্য";
+  static var officialInfo = "দাপ্তরিক তথ্য";
 
-  static var hasBranchOffice="শাখা অফিস: আছে/নেই";
-  static var branchOfficailCondition="শাখার দাফতরিক অবস্থা: খুব ভালো/ভালো/মোটামুটি/ভালো না থাকলে কতদিনে হবে";
+  static var hasBranchOffice = "শাখা অফিস: আছে/নেই";
+  static var branchOfficailCondition = "শাখার দাফতরিক অবস্থা: খুব ভালো/ভালো/মোটামুটি/ভালো না থাকলে কতদিনে হবে";
 
   // external relation
-  static var externalConnectionInfo="বহিঃসম্পর্ক";
+  static var externalConnectionInfo = "বহিঃসম্পর্ক";
 
-  static var withAndolan="আন্দোলনের সাথে";
-  static var withBMC="বামুকের সাথে";
-  static var withOthers="অন্যান্যদের সাথে";
-  static var branchProblem="শাখা সমস্যা";
-  static var branchPossiblity="শাখা সম্ভাবনা";
-
-
-
-
-
-
-
+  static var withAndolan = "আন্দোলনের সাথে";
+  static var withBMC = "বামুকের সাথে";
+  static var withOthers = "অন্যান্যদের সাথে";
+  static var branchProblem = "শাখা সমস্যা";
+  static var branchPossiblity = "শাখা সম্ভাবনা";
 }
