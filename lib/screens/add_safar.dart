@@ -128,6 +128,7 @@ class _AddSafarState extends State<AddSafar> {
                   GetCard(cardText: Cons.prokashonaInfo),
                   getPubInfo(),
 
+
                   // Economic info
                   GetCard(cardText: Cons.economicInfo),
                   getEconomicInfo(),
