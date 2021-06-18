@@ -5,11 +5,13 @@ class Cons {
   static final signInScreen = "/signIn";
   static final signUpScreen = "/signUp";
   static final addSafarScreen = "/addSafar";
-  static var homePage = '/homepage';
+  static final viewSafarScreen = "/viewSafars";
+  static final homePage = '/homepage';
 
   // Strings
 
   static var addSafar = "Add Safar";
+  static var viewSafars = "View Safars";
   static String? emptyMsg = "cannot be empty!";
 
   //branch info
@@ -17,7 +19,7 @@ class Cons {
 
   static var branchName = "শাখার নাম";
   static var branchPresidentName = "শাখা সভাপতির নাম";
-  static var safarDate = "সফরের তারিখ";
+  static var safarDateString = "সফরের তারিখ";
   static var location = "স্থান";
   static String safarType = "সফরের ধরণ";
 
@@ -107,6 +109,7 @@ class Cons {
   static var withOthers="অন্যান্যদের সাথে";
   static var branchProblem="শাখা সমস্যা";
   static var branchPossiblity="শাখা সম্ভাবনা";
+
 
 
 

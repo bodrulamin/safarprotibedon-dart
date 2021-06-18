@@ -84,7 +84,7 @@ class _AddSafarState extends State<AddSafar> {
   var _branchProblem = TextEditingController();
   var _branchPossiblity = TextEditingController();
 
-  late DateTime safarDate;
+  DateTime safarDate = DateTime.now();
 
   Color getColorRedAmber(Set<MaterialState> states) {
     const Set<MaterialState> interactiveStates = <MaterialState>{
@@ -160,9 +160,7 @@ class _AddSafarState extends State<AddSafar> {
                               // If the form is valid, display a snackbar. In the real world,
                               // you'd often call a server or save the information in a database.
 
-                             addToFirebase();
-
-
+                              addToFirebase();
 
                               ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(_branchName.text)));
                             }
@@ -182,63 +180,58 @@ class _AddSafarState extends State<AddSafar> {
   }
 
   void addToFirebase() {
-        var safar = Safar(
-        branchName:_branchName.text.toString(),
-        safarDate:safarDate,
-        location:_location.text.toString(),
-        branchPresidentName:_branchPresidentName.text.toString(),
-        safarType:_selectedSafarType,
-        totalpresent:_totalPresent.text.toString(),
-        sodossoKormiMuballigProttashi:_sodossoKormiMuballigProttashi.text.toString(),
-        thanaDayittoshil:_thanaDayittoshil.text.toString(),
-        jillaDayittoshil:_jillaDayittoshil.text.toString(),
-        diniShongothon:_diniShongothon.text.toString(),
-        islamiAndolan:_islamiAndolan.text.toString(),
-        otherPeople:_otherPeople.text.toString(),
-        activeJila:_activeJila.text.toString(),
-        activeThana:_activeThana.text.toString(),
-        inactiveCause:_inactiveCause.text.toString(),
-        monthlyReportToCenter:_monthlyReportToCenter.text.toString(),
-        monthlyMeeting:_monthlyMeeting.text.toString(),
-        monthlyMeetingAvgPresent:_monthlyMeetingAvgPresent.text.toString(),
-        visitToLowerBranch:_visitToLowerBranch.text.toString(),
-        newSodosso:_newSodosso.text.toString(),
-        newKormi:_newKormi.text.toString(),
-        newMuballigProttashi:_newMuballigProttashi.text.toString(),
-        sodossoTeam:_sodossoTeam.text.toString(),
-        kormiTeam:_kormiTeam.text.toString(),
-        mubaligProttashiTeam:_mubaligProttashiTeam.text.toString(),
-        sodossoLokkhoMatra:_sodossoLokkhoMatra.text.toString(),
-        kormiLokkhoMatra:_kormiLokkhoMatra.text.toString(),
-        sodossoShikkhaBoithok:_sodossoShikkhaBoithok.text.toString(),
-        kormiShikkhaBoithok:_kormiShikkhaBoithok.text.toString(),
-        muballigProttashiShikkhaBoithok:_muballigProttashiShikkhaBoithok.text.toString(),
-        jilaShobgujari:_jilaShobgujari.text.toString(),
-        thanaShobgujari:_thanaShobgujari.text.toString(),
-        prokashonaKroy:_prokashonaKroy.text.toString(),
-        prokashonaBikroy:_prokashonaBikroy.text.toString(),
-        noboChintaKroy:_noboChintaKroy.text.toString(),
-        nokibKroy:_nokibKroy.text.toString(),
-        dayittoShilEyanot:_dayittoShilEyanot.text.toString(),
-        shudiEyanot:_shudiEyanot.text.toString(),
-        odhostonEyanot:_odhostonEyanot.text.toString(),
-        centralMonthlyEyanot:_centralMonthlyEyanot.text.toString(),
-        hasBranchOffice:_hasBranchOffice.text.toString(),
-        branchOfficailCondition:_branchOfficailCondition.text.toString(),
-        withAndolan:_withAndolan.text.toString(),
-        withBMC:_withBMC.text.toString(),
-        withOthers:_withOthers.text.toString(),
-        branchProblem:_branchProblem.text.toString(),
-        branchPossiblity:_branchPossiblity.text.toString()
-    );
+    var safar = Safar(
+        branchName: _branchName.text.toString(),
+        safarDate: safarDate,
+        location: _location.text.toString(),
+        branchPresidentName: _branchPresidentName.text.toString(),
+        safarType: _selectedSafarType,
+        totalpresent: _totalPresent.text.toString(),
+        sodossoKormiMuballigProttashi: _sodossoKormiMuballigProttashi.text.toString(),
+        thanaDayittoshil: _thanaDayittoshil.text.toString(),
+        jillaDayittoshil: _jillaDayittoshil.text.toString(),
+        diniShongothon: _diniShongothon.text.toString(),
+        islamiAndolan: _islamiAndolan.text.toString(),
+        otherPeople: _otherPeople.text.toString(),
+        activeJila: _activeJila.text.toString(),
+        activeThana: _activeThana.text.toString(),
+        inactiveCause: _inactiveCause.text.toString(),
+        monthlyReportToCenter: _monthlyReportToCenter.text.toString(),
+        monthlyMeeting: _monthlyMeeting.text.toString(),
+        monthlyMeetingAvgPresent: _monthlyMeetingAvgPresent.text.toString(),
+        visitToLowerBranch: _visitToLowerBranch.text.toString(),
+        newSodosso: _newSodosso.text.toString(),
+        newKormi: _newKormi.text.toString(),
+        newMuballigProttashi: _newMuballigProttashi.text.toString(),
+        sodossoTeam: _sodossoTeam.text.toString(),
+        kormiTeam: _kormiTeam.text.toString(),
+        mubaligProttashiTeam: _mubaligProttashiTeam.text.toString(),
+        sodossoLokkhoMatra: _sodossoLokkhoMatra.text.toString(),
+        kormiLokkhoMatra: _kormiLokkhoMatra.text.toString(),
+        sodossoShikkhaBoithok: _sodossoShikkhaBoithok.text.toString(),
+        kormiShikkhaBoithok: _kormiShikkhaBoithok.text.toString(),
+        muballigProttashiShikkhaBoithok: _muballigProttashiShikkhaBoithok.text.toString(),
+        jilaShobgujari: _jilaShobgujari.text.toString(),
+        thanaShobgujari: _thanaShobgujari.text.toString(),
+        prokashonaKroy: _prokashonaKroy.text.toString(),
+        prokashonaBikroy: _prokashonaBikroy.text.toString(),
+        noboChintaKroy: _noboChintaKroy.text.toString(),
+        nokibKroy: _nokibKroy.text.toString(),
+        dayittoShilEyanot: _dayittoShilEyanot.text.toString(),
+        shudiEyanot: _shudiEyanot.text.toString(),
+        odhostonEyanot: _odhostonEyanot.text.toString(),
+        centralMonthlyEyanot: _centralMonthlyEyanot.text.toString(),
+        hasBranchOffice: _hasBranchOffice.text.toString(),
+        branchOfficailCondition: _branchOfficailCondition.text.toString(),
+        withAndolan: _withAndolan.text.toString(),
+        withBMC: _withBMC.text.toString(),
+        withOthers: _withOthers.text.toString(),
+        branchProblem: _branchProblem.text.toString(),
+        branchPossiblity: _branchPossiblity.text.toString());
 
-
-    
     var fdb = FirebaseFirestore.instance;
     fdb.collection('safar').doc().set(safar.toMap());
   }
-
-
 
   Widget getBranchInfo() {
     return Column(
@@ -281,11 +274,11 @@ class _AddSafarState extends State<AddSafar> {
                   _date.text = formattedDate + " " + dayName;
                 },
                 currentTime: DateTime.now(),
-                locale: LocaleType.bn,
+
               );
             },
             decoration: InputDecoration(
-              labelText: Cons.safarDate,
+              labelText: Cons.safarDateString,
               border: OutlineInputBorder(),
             ),
             // The validator receives the text that the user has entered.
@@ -532,10 +525,13 @@ class _AddSafarState extends State<AddSafar> {
     );
   }
 
+
+
   Widget getManpowerInfo() {
     return Column(
       children: [
-        Text(Cons.newIncrease),
+        Text(Cons.newIncrease,
+        ),
         Padding(
           padding: EdgeInsets.all(defaultPadding),
           child: TextFormField(

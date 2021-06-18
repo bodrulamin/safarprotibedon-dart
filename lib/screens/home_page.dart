@@ -22,11 +22,27 @@ class _HomePageState extends State<HomePage> {
       body: Center(
         child: Column(
           children: [
+            SizedBox(
+              height: 10.0,
+            ),
             ElevatedButton(
                 onPressed: () {
                   Navigator.pushNamed(context, Cons.addSafarScreen);
                 },
                 child: Text(Cons.addSafar)),
+            SizedBox(
+              height: 10.0,
+            ),
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                primary: Colors.green, // background
+                onPrimary: Colors.white, // foreground
+              ),
+              onPressed: () {
+                Navigator.pushNamed(context, Cons.viewSafarScreen);
+              },
+              child: Text(Cons.viewSafars),
+            ),
             Text("Logged in as " + firebaseUser!.email!),
             ElevatedButton(
                 onPressed: () {

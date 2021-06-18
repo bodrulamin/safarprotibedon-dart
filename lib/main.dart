@@ -6,6 +6,7 @@ import 'package:safarprotibedon/screens/add_safar.dart';
 import 'package:safarprotibedon/screens/home_page.dart';
 import 'package:safarprotibedon/screens/sign_in.dart';
 import 'package:safarprotibedon/screens/sign_up.dart';
+import 'package:safarprotibedon/screens/view_safars.dart';
 import 'package:safarprotibedon/services/authentication_service.dart';
 
 import 'constants/const.dart';
@@ -16,19 +17,14 @@ Future<void> main() async {
   runApp(MyApp());
 }
 
-
 class MyApp extends StatelessWidget {
-
-
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        Provider<AuthenticationService>(
-            create: (_) => AuthenticationService((FirebaseAuth.instance))),
+        Provider<AuthenticationService>(create: (_) => AuthenticationService((FirebaseAuth.instance))),
         StreamProvider(
-          create: (context) =>
-              context.read<AuthenticationService>().authStateChanes,
+          create: (context) => context.read<AuthenticationService>().authStateChanes,
           initialData: null,
         )
       ],
@@ -41,11 +37,10 @@ class MyApp extends StatelessWidget {
           Cons.signInScreen: (context) => SignInPage(),
           Cons.signUpScreen: (context) => SignUpScreen(),
           Cons.addSafarScreen: (context) => AddSafar(),
-
-
+          Cons.viewSafarScreen: (context) => view_safars(),
         },
         theme: ThemeData(
-
+          fontFamily: 'Ekushe',
 
           visualDensity: VisualDensity.adaptivePlatformDensity,
         ),
@@ -53,8 +48,6 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-
-
 
 class AuthenticationWrapper extends StatelessWidget {
   @override
