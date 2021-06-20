@@ -37,7 +37,6 @@ class _view_safarsState extends State<view_safars> {
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Column(
-
                   children: [
                     Row(
                       children: [
