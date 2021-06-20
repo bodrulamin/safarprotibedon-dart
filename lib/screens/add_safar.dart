@@ -1,7 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
 import 'package:intl/intl.dart';
 import 'package:safarprotibedon/constants/const.dart';
 import 'package:safarprotibedon/model/safar_model.dart';
@@ -114,7 +113,7 @@ class _AddSafarState extends State<AddSafar> {
                 children: <Widget>[
                   // branchinfos
                   GetCard(cardText: Cons.branchInfo),
-                  getBranchInfo(),
+                  getBranchInfo(context),
 
                   // org Info
                   GetCard(cardText: Cons.orgInfo),
@@ -127,7 +126,6 @@ class _AddSafarState extends State<AddSafar> {
                   // prokashona
                   GetCard(cardText: Cons.prokashonaInfo),
                   getPubInfo(),
-
 
                   // Economic info
                   GetCard(cardText: Cons.economicInfo),
@@ -234,7 +232,7 @@ class _AddSafarState extends State<AddSafar> {
     fdb.collection(Cons.col_safar).doc().set(safar.toMap());
   }
 
-  Widget getBranchInfo() {
+  Widget getBranchInfo(BuildContext context) {
     return Column(
       children: [
         /////////////////////////////Branch Name
@@ -257,27 +255,23 @@ class _AddSafarState extends State<AddSafar> {
           child: TextFormField(
             validator: isEmpty,
             controller: _date,
-            onTap: () {
-              DateTime now = DateTime.now();
+            onTap: () async {
+              var initialDate = DateTime.now();
+              var firstDate = DateTime(initialDate.year - 1);
 
-              DatePicker.showDatePicker(
-                context,
-                showTitleActions: true,
-                minTime: DateTime(now.year - 1, 1, 1),
-                maxTime: DateTime(now.year, 12, 31),
-                onChanged: (date) {
-                  // print('change $date');
-                },
-                onConfirm: (date) {
-                  safarDate = date;
-                  String dayName = DateFormat.EEEE('en_US').format(date);
-                  String formattedDate = DateFormat('dd-MM-yyyy').format(date);
-                  _date.text = formattedDate + " " + dayName;
-                },
-                currentTime: DateTime.now(),
+              var lastDate = DateTime(initialDate.year + 1);
+              final newDate = await showDatePicker(context: context, initialDate: initialDate, firstDate: firstDate, lastDate: lastDate);
+              if (newDate == null) return;
 
-              );
+              safarDate = newDate;
+              String dayName = DateFormat.EEEE('en_US').format(newDate!);
+              String formattedDate = DateFormat('dd-MM-yyyy').format(safarDate);
+              _date.text = formattedDate + " " + dayName;
+
+
+
             },
+
             decoration: InputDecoration(
               labelText: Cons.safarDateString,
               border: OutlineInputBorder(),
@@ -526,12 +520,11 @@ class _AddSafarState extends State<AddSafar> {
     );
   }
 
-
-
   Widget getManpowerInfo() {
     return Column(
       children: [
-        Text(Cons.newIncrease,
+        Text(
+          Cons.newIncrease,
         ),
         Padding(
           padding: EdgeInsets.all(defaultPadding),
