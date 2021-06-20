@@ -322,7 +322,7 @@ class Safar {
   factory Safar.fromMap(Map<String, dynamic> map) {
     return new Safar(
       branchName: map['branchName'] as String?,
-      safarDate: map['safarDate'] as DateTime,
+      safarDate: map['safarDate'].toDate() as DateTime,
       location: map['location'] as String?,
       branchPresidentName: map['branchPresidentName'] as String?,
       safarType: map['safarType'] as String?,

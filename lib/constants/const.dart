@@ -7,6 +7,9 @@ class Cons {
   static final viewSafarScreen = "/viewSafars";
   static final homePage = '/homepage';
 
+  // firebase variables
+  static String col_safar  = "safar";
+
   // Strings
 
   static var addSafar = "Add Safar";
@@ -104,4 +107,6 @@ class Cons {
   static var withOthers = "অন্যান্যদের সাথে";
   static var branchProblem = "শাখা সমস্যা";
   static var branchPossiblity = "শাখা সম্ভাবনা";
+
+
 }

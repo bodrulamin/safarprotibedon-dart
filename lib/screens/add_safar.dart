@@ -231,7 +231,7 @@ class _AddSafarState extends State<AddSafar> {
         branchPossiblity: _branchPossiblity.text.toString());
 
     var fdb = FirebaseFirestore.instance;
-    fdb.collection('safar').doc().set(safar.toMap());
+    fdb.collection(Cons.col_safar).doc().set(safar.toMap());
   }
 
   Widget getBranchInfo() {
