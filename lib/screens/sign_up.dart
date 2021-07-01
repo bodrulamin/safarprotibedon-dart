@@ -26,6 +26,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
     const defaultPadding = 8.0;
 
     return Scaffold(
+
       appBar: AppBar(
         title: Text("Sign Up"),
       ),

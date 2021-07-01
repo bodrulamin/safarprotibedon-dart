@@ -27,7 +27,9 @@ class MyApp extends StatelessWidget {
           create: (context) => context.read<AuthenticationService>().authStateChanes,
           initialData: null,
         )
-      ],
+      ]
+
+,
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         initialRoute: Cons.mainPage,
@@ -40,7 +42,7 @@ class MyApp extends StatelessWidget {
           Cons.viewSafarScreen: (context) => view_safars(),
         },
         theme: ThemeData(
-          fontFamily: 'Ekushe',
+          fontFamily: Cons.defaultFont,
 
           visualDensity: VisualDensity.adaptivePlatformDensity,
         ),

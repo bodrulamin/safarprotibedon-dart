@@ -160,8 +160,8 @@ class _AddSafarState extends State<AddSafar> {
                               // you'd often call a server or save the information in a database.
 
                               addToFirebase();
-
-                              ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(_branchName.text)));
+                              ScaffoldMessenger.of(context).showSnackBar(SnackBar( content: Text(Cons.protibedonSaved, style: TextStyle(fontFamily: Cons.defaultFont),)));
+                              Navigator.of(context).pop();
                             }
                           },
                           child: Text('Submit'),
@@ -267,9 +267,6 @@ class _AddSafarState extends State<AddSafar> {
               String dayName = DateFormat.EEEE('en_US').format(newDate!);
               String formattedDate = DateFormat('dd-MM-yyyy').format(safarDate);
               _date.text = formattedDate + " " + dayName;
-
-
-
             },
 
             decoration: InputDecoration(

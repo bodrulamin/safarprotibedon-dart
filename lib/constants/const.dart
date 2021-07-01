@@ -108,5 +108,9 @@ class Cons {
   static var branchProblem = "শাখা সমস্যা";
   static var branchPossiblity = "শাখা সম্ভাবনা";
 
+  static String protibedonSaved = "প্রতিবেদন সেভ করা হয়েছে";
+
+  static var defaultFont = "Ekushe";
+
 
 }
