@@ -6,7 +6,8 @@ import 'package:safarprotibedon/screens/add_safar.dart';
 import 'package:safarprotibedon/screens/home_page.dart';
 import 'package:safarprotibedon/screens/sign_in.dart';
 import 'package:safarprotibedon/screens/sign_up.dart';
-import 'package:safarprotibedon/screens/view_safars.dart';
+import 'package:safarprotibedon/screens/view_safar.dart';
+import 'package:safarprotibedon/screens/view_safar_list.dart';
 import 'package:safarprotibedon/services/authentication_service.dart';
 
 import 'constants/const.dart';
@@ -39,7 +40,8 @@ class MyApp extends StatelessWidget {
           Cons.signInScreen: (context) => SignInPage(),
           Cons.signUpScreen: (context) => SignUpScreen(),
           Cons.addSafarScreen: (context) => AddSafar(),
-          Cons.viewSafarScreen: (context) => view_safars(),
+          Cons.viewSafarList: (context) => ViewSafarList(),
+          Cons.viewSafarScreen: (context) => ViewSafarScreen(),
         },
         theme: ThemeData(
           fontFamily: Cons.defaultFont,

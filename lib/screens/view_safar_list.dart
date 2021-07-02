@@ -4,14 +4,16 @@ import 'package:intl/intl.dart';
 import 'package:safarprotibedon/constants/const.dart';
 import 'package:safarprotibedon/model/safar_model.dart';
 
-class view_safars extends StatefulWidget {
+class ViewSafarList extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-    return _view_safarsState();
+    return _ViewSafarListState();
   }
 }
 
-class _view_safarsState extends State<view_safars> {
+class _ViewSafarListState extends State<ViewSafarList> {
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -38,7 +40,8 @@ class _view_safarsState extends State<view_safars> {
         /*snapshot.data.documents.length,*/
         itemBuilder: (context, index) {
           DocumentSnapshot safarDoc = snapshot.data!.docs[index];
-          final safar = Safar.fromMap(safarDoc.data()!);
+          
+           final safar = Safar.fromMap(safarDoc.data()!);
 
           String dayName = DateFormat.EEEE('en_US').format(safar.safarDate);
           String formattedDate = DateFormat('dd-MM-yyyy').format(
@@ -46,7 +49,7 @@ class _view_safarsState extends State<view_safars> {
 
 
           return GestureDetector(
-            onTap: showFullReport(context, index),
+            onTap: showFullReport(context,safar),
             child: Card(
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
@@ -103,7 +106,7 @@ class _view_safarsState extends State<view_safars> {
     }
   }
 
-  showFullReport(BuildContext context, int index) {
-    // Navigator.pushNamed(context, "/show")
+  showFullReport(BuildContext context, Safar safar) {
+    Navigator.pushNamed(context, Cons.viewSafarScreen,arguments: {"staff" : safar});
   }
 }

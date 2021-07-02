@@ -264,7 +264,7 @@ class _AddSafarState extends State<AddSafar> {
               if (newDate == null) return;
 
               safarDate = newDate;
-              String dayName = DateFormat.EEEE('en_US').format(newDate!);
+              String dayName = DateFormat.EEEE('en_US').format(newDate);
               String formattedDate = DateFormat('dd-MM-yyyy').format(safarDate);
               _date.text = formattedDate + " " + dayName;
             },
