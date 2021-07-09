@@ -113,5 +113,7 @@ class Cons {
 
   static var defaultFont = "Ekushe";
 
+  static String safarProtibedon = "সফর প্রতিবেদন";
+
 
 }

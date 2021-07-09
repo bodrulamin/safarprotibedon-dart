@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:safarprotibedon/constants/const.dart';
 import 'package:safarprotibedon/model/safar_model.dart';
+import 'package:safarprotibedon/screens/view_safar.dart';
 
 class ViewSafarList extends StatefulWidget {
   @override
@@ -120,22 +121,8 @@ class _ViewSafarListState extends State<ViewSafarList> {
     Navigator.push(
         context,
         MaterialPageRoute(
-            builder: (context) => PasswordRoute(safar)));
+            builder: (context) => ViewSafarDetails(safar)));
   }
 }
 
-class PasswordRoute extends StatefulWidget {
-  final Safar safar; //if you have multiple values add here
-  PasswordRoute(this.safar, {Key? key})
-      : super(key: key); //add also..example this.abc,this...
 
-  @override
-  State<StatefulWidget> createState() => _PasswordPageState();
-}
-
-class _PasswordPageState extends State<PasswordRoute> {
-  @override
-  Widget build(BuildContext context) {
-    return Text(widget.safar.branchName.toString());
-  }
-}
