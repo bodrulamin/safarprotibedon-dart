@@ -39,7 +39,7 @@ class _HomePageState extends State<HomePage> {
                 onPrimary: Colors.white, // foreground
               ),
               onPressed: () {
-                Navigator.pushNamed(context, Cons.viewSafarScreen);
+                Navigator.pushNamed(context, Cons.viewSafarList);
               },
               child: Text(Cons.viewSafars),
             ),

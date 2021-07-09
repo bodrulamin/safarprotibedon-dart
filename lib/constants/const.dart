@@ -5,7 +5,7 @@ class Cons {
   static final signUpScreen = "/signUp";
   static final addSafarScreen = "/addSafar";
   static final viewSafarList = "/viewSafarList";
-  static final viewSafarScreen = "/viewSafarScreen";
+  // static final viewSafarScreen = "/viewSafarScreen";
   static final homePage = '/homepage';
 
   // firebase variables

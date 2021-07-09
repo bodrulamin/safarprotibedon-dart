@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
@@ -12,8 +14,6 @@ class ViewSafarList extends StatefulWidget {
 }
 
 class _ViewSafarListState extends State<ViewSafarList> {
-
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,7 +24,8 @@ class _ViewSafarListState extends State<ViewSafarList> {
           child: Container(
             width: 500.0,
             child: StreamBuilder(
-              stream: FirebaseFirestore.instance.collection(Cons.col_safar)
+              stream: FirebaseFirestore.instance
+                  .collection(Cons.col_safar)
                   .snapshots(),
               builder: buildUserList,
             ),
@@ -32,31 +33,30 @@ class _ViewSafarListState extends State<ViewSafarList> {
         ));
   }
 
-  Widget buildUserList(BuildContext context,
-      AsyncSnapshot<QuerySnapshot> snapshot) {
+  Widget buildUserList(
+      BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
     if (snapshot.hasData) {
       return GridView.builder(
+
         itemCount: snapshot.data!.docs.length,
         /*snapshot.data.documents.length,*/
         itemBuilder: (context, index) {
           DocumentSnapshot safarDoc = snapshot.data!.docs[index];
-          
-           final safar = Safar.fromMap(safarDoc.data()!);
+          List<QueryDocumentSnapshot> safarList = snapshot.data!.docs ;
+          Safar safar = Safar.fromMap(safarDoc.data()!);
 
           String dayName = DateFormat.EEEE('en_US').format(safar.safarDate);
-          String formattedDate = DateFormat('dd-MM-yyyy').format(
-              safar.safarDate);
+          String formattedDate =
+              DateFormat('dd-MM-yyyy').format(safar.safarDate);
 
-
-          return GestureDetector(
-            onTap: showFullReport(context,safar),
+          return InkWell(
+            onTap: () => showFullReport(context,safarList,index),
             child: Card(
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.center,
-
                   children: [
                     // branch name, safar type, safar date, who safared,
                     Text(safar.branchName.toString()),
@@ -69,8 +69,6 @@ class _ViewSafarListState extends State<ViewSafarList> {
                     ),
 
                     Text(formattedDate),
-
-
                   ],
                 ),
               ),
@@ -83,14 +81,14 @@ class _ViewSafarListState extends State<ViewSafarList> {
            mehman, dayitto
            * */
         },
-
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
           mainAxisExtent: 150.0,
-          childAspectRatio: 1, crossAxisCount: 2,
+          childAspectRatio: 1,
+          crossAxisCount: 2,
         ),
       );
-    } else
-    if (snapshot.connectionState == ConnectionState.done && !snapshot.hasData) {
+    } else if (snapshot.connectionState == ConnectionState.done &&
+        !snapshot.hasData) {
       // Handle no data
       return Center(
         child: Text("No users found."),
@@ -99,14 +97,45 @@ class _ViewSafarListState extends State<ViewSafarList> {
       // Still loading
       return Column(
         children: [
-          SizedBox(height: 10.0,),
+          SizedBox(
+            height: 10.0,
+          ),
           CircularProgressIndicator(),
         ],
       );
     }
   }
 
-  showFullReport(BuildContext context, Safar safar) {
-    Navigator.pushNamed(context, Cons.viewSafarScreen,arguments: {"staff" : safar});
+  showFullReport(BuildContext context, List<QueryDocumentSnapshot> safarList, int index ) {
+    // Navigator.push(
+    //   context,
+    //   MaterialPageRoute(
+    //     builder: (context) => ViewSafarScreen( safar: safar),
+    //   ),
+    // );
+
+    DocumentSnapshot safarDoc = safarList[index];
+    final safar = Safar.fromMap(safarDoc.data()!);
+
+    Navigator.push(
+        context,
+        MaterialPageRoute(
+            builder: (context) => PasswordRoute(safar)));
+  }
+}
+
+class PasswordRoute extends StatefulWidget {
+  final Safar safar; //if you have multiple values add here
+  PasswordRoute(this.safar, {Key? key})
+      : super(key: key); //add also..example this.abc,this...
+
+  @override
+  State<StatefulWidget> createState() => _PasswordPageState();
+}
+
+class _PasswordPageState extends State<PasswordRoute> {
+  @override
+  Widget build(BuildContext context) {
+    return Text(widget.safar.branchName.toString());
   }
 }

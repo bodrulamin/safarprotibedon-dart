@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:safarprotibedon/model/safar_model.dart';
 import 'package:safarprotibedon/screens/add_safar.dart';
 import 'package:safarprotibedon/screens/home_page.dart';
 import 'package:safarprotibedon/screens/sign_in.dart';
@@ -41,7 +42,6 @@ class MyApp extends StatelessWidget {
           Cons.signUpScreen: (context) => SignUpScreen(),
           Cons.addSafarScreen: (context) => AddSafar(),
           Cons.viewSafarList: (context) => ViewSafarList(),
-          Cons.viewSafarScreen: (context) => ViewSafarScreen(),
         },
         theme: ThemeData(
           fontFamily: Cons.defaultFont,
